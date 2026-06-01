@@ -99,25 +99,23 @@ section { padding: 120px 8%; pointer-events: none; }
   position: sticky;
   display: flex;
   width: 100%;
-  height: 70vh; /* Premium cinematic height */
+  height: 70vh;
   min-height: 500px;
   max-height: 700px;
-  border-radius: 16px; /* Smooth modern corners */
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.7); /* Deep shadow separates the stacked layers */
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 2px solid rgba(255,255,255,0.3); /* Catch light on the top edge */
+  border-top: 2px solid rgba(255,255,255,0.3);
 }
 
-/* The Stacking Logic - Gives them a beautiful cascading effect as you scroll */
 #card-1 { top: 120px; z-index: 1; }
 #card-2 { top: 140px; z-index: 2; }
 #card-3 { top: 160px; z-index: 3; }
 #card-4 { top: 180px; z-index: 4; }
 
-/* Container Colors (Keeping the corrugated steel vibe) */
 .card-info {
-  width: 45%; /* Text takes up left side */
+  width: 45%;
   padding: 60px;
   display: flex;
   flex-direction: column;
@@ -137,13 +135,12 @@ section { padding: 120px 8%; pointer-events: none; }
 .card-id { font-family: 'Inter', monospace; font-size: 0.9rem; font-weight: 700; color: rgba(255, 255, 255, 0.5); letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
 .card-specs { position: absolute; bottom: 40px; left: 60px; font-family: 'Inter', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
 
-/* Massive Image Panel */
 .card-visual {
-  width: 55%; /* Image takes up the right side */
+  width: 55%;
   background-size: cover;
   background-position: center;
   position: relative;
-  box-shadow: inset 20px 0 50px rgba(0,0,0,0.6); /* blends the seam between text and image */
+  box-shadow: inset 20px 0 50px rgba(0,0,0,0.6);
 }
 .card-overlay {
   position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 40%);
@@ -265,7 +262,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .stat-number { font-size: 3.2rem; }
   .stat-item { padding: 20px 10px; }
 
-  /* Timeline — repositioned so line+dot+content fit a 375px screen */
+  /* Timeline */
   .timeline-line-bg  { left: 18px; }
   .timeline-line-fill { left: 18px; }
   .node-point { margin-left: 9px; width: 18px; height: 18px; }
@@ -273,7 +270,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .node-content h4 { font-size: 1.2rem; }
   .timeline-node { margin-bottom: 45px; }
 
-  /* Portfolio cards — disable sticky, stack cleanly */
+  /* Portfolio cards */
   .portfolio-section { padding-bottom: 60px; }
   .portfolio-deck { gap: 20px; }
   .portfolio-card { flex-direction: column; height: auto; min-height: auto; position: relative !important; }
@@ -297,7 +294,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .globe-text-content .section-header { text-align: center; margin-bottom: 25px; }
   .globe-text-content .section-header h2::after { margin: 25px auto 0; }
   .globe-text-content .section-header p { margin: 0 auto; }
-  .globe-features { display: none; } /* condense on mobile — info is in marquee already */
+  .globe-features { display: none; } 
   #globe-wrapper { max-width: 360px; }
 
   /* Sustainability */
@@ -314,14 +311,13 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   /* Contact */
   .contact-wrapper { grid-template-columns: 1fr; padding: 35px 20px; gap: 35px; }
   .contact-text h3 { font-size: 2rem; }
-  /* Prevent iOS zoom on form inputs (font-size must be ≥ 16px) */
   .form-control { font-size: 1rem; }
   select.form-control { font-size: 1rem; }
 
   /* Footer */
   footer { padding: 30px 20px; }
 
-  /* WhatsApp — smaller, no tooltip on touch */
+  /* WhatsApp */
   .whatsapp-btn { bottom: 20px; right: 20px; width: 52px; height: 52px; }
   .whatsapp-btn svg { width: 26px; height: 26px; }
   .whatsapp-tooltip { display: none; }
@@ -478,20 +474,16 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
 </head>
 <body>
 
-<!-- PRELOADER -->
 <div id="preloader">
   <div class="preloader-logo">M.F <span>Lakhani</span></div>
   <div class="preloader-tagline">Premium Global Export</div>
   <div class="preloader-bar-track"><div class="preloader-bar-fill"></div></div>
 </div>
 
-<!-- SCROLL PROGRESS BAR -->
 <div id="scroll-progress"></div>
 
-<!-- HERO PARTICLE CANVAS -->
 <canvas id="hero-canvas"></canvas>
 
-<!-- FILM GRAIN TEXTURE OVERLAY -->
 <div class="film-grain"></div>
 
 <div id="ocean-background"></div>
@@ -584,7 +576,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       <div class="marquee-item"><span class="flag">🇲🇦</span> Morocco</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇮🇳</span> India</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇦🇺</span> Australia</div><div class="marquee-diamond">◆</div>
-      <!-- Duplicate for seamless loop -->
       <div class="marquee-item"><span class="flag">🇵🇰</span> Pakistan</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇦🇪</span> UAE</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇰🇪</span> Kenya</div><div class="marquee-diamond">◆</div>
@@ -1091,113 +1082,69 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   $(document).ready(function() {
     try {
       var $water = $('#ocean-background');
+      var isMob = window.innerWidth <= 950;
 
-      // Higher perturbance = stronger light-refraction, closer to real water from above
       $water.ripples({
-        resolution:   512,
-        dropRadius:   220,
-        perturbance:  0.18,
+        resolution:   isMob ? 256 : 512,
+        dropRadius:   isMob ? 120 : 220,
+        perturbance:  isMob ? 0.08 : 0.18,
         crossOrigin:  'anonymous',
         interactive:  false
       });
 
-      // ----------------------------------------------------------------
-      // CURSOR — speed-responsive: glide gently = small ripples,
-      //          sweep fast = large breaking waves
-      // ----------------------------------------------------------------
       var mx = -999, my = -999;
       var isTouchOnly = window.matchMedia('(hover: none)').matches;
       $(document).on('mousemove', function(e) {
         if(isTouchOnly) return;
-        var dx    = e.clientX - mx;
-        var dy    = e.clientY - my;
+        var dx = e.clientX - mx, dy = e.clientY - my;
         var speed = Math.sqrt(dx * dx + dy * dy);
         if (speed < 4) return;
-        var radius   = 90  + Math.min(speed * 3.5, 200);
+        var radius = 90 + Math.min(speed * 3.5, 200);
         var strength = 0.018 + Math.min(speed * 0.0018, 0.072);
         $water.ripples('drop', e.clientX, e.clientY, radius, strength);
-        mx = e.clientX;
-        my = e.clientY;
+        mx = e.clientX; my = e.clientY;
       });
 
-      // ----------------------------------------------------------------
-      // OCEAN SWELL GENERATOR
-      // Creates realistic wave-fronts: horizontal swells and diagonal
-      // cross-swells, each built from overlapping large drops so the
-      // refraction lines look like actual ocean waves seen from the sky.
-      // ----------------------------------------------------------------
       function createSwell(type) {
-        var W        = $(window).width();
-        var H        = $(window).height();
-        var radius   = 200 + Math.random() * 220;
-        var strength = 0.045 + Math.random() * 0.055;
+        var W = $(window).width(), H = $(window).height();
+        var radius = (isMob ? 120 : 200) + Math.random() * (isMob ? 100 : 220);
+        var strength = isMob ? 0.02 + Math.random() * 0.02 : 0.045 + Math.random() * 0.055;
+        var stepDiv = isMob ? 96 : 48; 
 
         if (type === 'h') {
-          // --- Horizontal swell rolling across the full width ---
           var baseY = H * 0.08 + Math.random() * H * 0.84;
-          var steps = Math.ceil(W / 48) + 2;
+          var steps = Math.ceil(W / stepDiv) + 2;
           for (var i = 0; i <= steps; i++) {
-            (function(n) {
-              setTimeout(function() {
-                $water.ripples('drop',
-                  n * 48,
-                  baseY + Math.sin(n * 0.38) * 80,
-                  radius, strength
-                );
-              }, n * 14);
-            })(i);
+            (function(n) { setTimeout(function() { $water.ripples('drop', n * stepDiv, baseY + Math.sin(n * 0.38) * 80, radius, strength); }, n * (isMob ? 25 : 14)); })(i);
           }
-
         } else if (type === 'd') {
-          // --- Diagonal cross-swell (adds depth & realism) ---
-          var fromLeft = Math.random() > 0.5;
-          var startX   = fromLeft ? -radius : W + radius;
-          var dirX     = fromLeft ? 1 : -1;
-          var startY   = H * (0.05 + Math.random() * 0.45);
-          var steps    = Math.ceil((W + radius * 2) / 44);
+          var fromLeft = Math.random() > 0.5, startX = fromLeft ? -radius : W + radius, dirX = fromLeft ? 1 : -1;
+          var startY = H * (0.05 + Math.random() * 0.45);
+          var dStep = isMob ? 88 : 44;
+          var steps = Math.ceil((W + radius * 2) / dStep);
           for (var i = 0; i <= steps; i++) {
-            (function(n) {
-              setTimeout(function() {
-                $water.ripples('drop',
-                  startX + n * 44 * dirX,
-                  startY + n * 28 + Math.sin(n * 0.42) * 60,
-                  radius * 0.82, strength * 0.82
-                );
-              }, n * 16);
-            })(i);
+            (function(n) { setTimeout(function() { $water.ripples('drop', startX + n * dStep * dirX, startY + n * 28 + Math.sin(n * 0.42) * 60, radius * 0.82, strength * 0.82); }, n * (isMob ? 30 : 16)); })(i);
           }
-
         } else {
-          // --- Wide slow ground-swell (large-amplitude, gentle) ---
           var baseY = H * 0.2 + Math.random() * H * 0.6;
-          var steps = Math.ceil(W / 75) + 2;
+          var gStep = isMob ? 150 : 75;
+          var steps = Math.ceil(W / gStep) + 2;
           for (var i = 0; i <= steps; i++) {
-            (function(n) {
-              setTimeout(function() {
-                $water.ripples('drop',
-                  n * 75,
-                  baseY + Math.sin(n * 0.22) * 120,
-                  radius * 1.35, strength * 0.65
-                );
-              }, n * 22);
-            })(i);
+            (function(n) { setTimeout(function() { $water.ripples('drop', n * gStep, baseY + Math.sin(n * 0.22) * 120, radius * 1.35, strength * 0.65); }, n * (isMob ? 40 : 22)); })(i);
           }
         }
       }
 
-      // Schedule waves continuously — random mix of types
       function scheduleWave() {
-        var roll = Math.random();
-        var type = roll < 0.50 ? 'h' : (roll < 0.80 ? 'd' : 'g');
+        var roll = Math.random(), type = roll < 0.50 ? 'h' : (roll < 0.80 ? 'd' : 'g');
         createSwell(type);
-        setTimeout(scheduleWave, 2200 + Math.random() * 2400);
+        setTimeout(scheduleWave, isMob ? 4000 + Math.random() * 4000 : 2200 + Math.random() * 2400);
       }
 
-      // Seed with opening waves so the ocean feels alive immediately
       setTimeout(function() { createSwell('g'); }, 200);
-      setTimeout(function() { createSwell('h'); }, 800);
+      if(!isMob) setTimeout(function() { createSwell('h'); }, 800); 
       setTimeout(function() { createSwell('d'); }, 1800);
-      setTimeout(scheduleWave, 3800);
+      setTimeout(scheduleWave, isMob ? 5000 : 3800);
 
     } catch(e) { console.log('Water effect skipped.'); }
   });
@@ -1336,7 +1283,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   });
 </script>
 
-<!-- WHATSAPP FLOAT BUTTON — update the number in the href -->
 <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contact on WhatsApp">
   <div class="whatsapp-pulse"></div>
   <div class="whatsapp-tooltip">WhatsApp Us</div>
