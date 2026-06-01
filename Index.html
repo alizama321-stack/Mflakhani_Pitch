@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.F Lakhani & Sons | Premium Global Export</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+<script src="https://unpkg.com/globe.gl"></script>
+
+<style>
+/* ==========================================================================
+   PREMIUM CORE STYLES & VARIABLES
+   ========================================================================== */
+:root {
+  --gold: #D4AF37;
+  --champagne: #F5E6C3; 
+  --text-primary: #ffffff;
+  --text-muted: #e2e8f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--text-primary); background-color: transparent; }
+html { background-color: #000a14; overflow-x: hidden; }
+
+/* ==========================================================================
+   LAYER 1 & 2: BACKGROUNDS & VIDEO
+   ========================================================================== */
+#ocean-background { position: fixed; inset: 0; z-index: -4; background-image: url('bg.png'); background-size: cover; background-position: center; filter: contrast(1.2) brightness(0.9); will-change: filter; }
+.water-tint { position: fixed; inset: 0; z-index: -3; background: rgba(0, 15, 30, 0.4); pointer-events: none; }
+#hero-video-wrapper { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; will-change: opacity; }
+#hero-video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
+.video-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 10, 20, 0.5) 0%, rgba(0, 10, 20, 0.2) 100%); }
+.content-layer { position: relative; z-index: 10; padding-bottom: 80px; }
+nav, .hero-content, .luxury-container, .contact-wrapper, .whatsapp, footer, .interactive-module { pointer-events: auto; }
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+nav { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(0, 5, 10, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+.logo span { color: var(--gold); font-style: italic; }
+nav ul { display: flex; gap: 40px; list-style: none; align-items: center; }
+nav a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; transition: color 0.4s ease; }
+nav a:hover { color: var(--gold); }
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero { text-align: left; padding: 0 8%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; position: relative; pointer-events: none; }
+.hero-content { pointer-events: auto; }
+.accent-subtitle { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: var(--champagne); margin-bottom: 20px; display: block; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 5.5rem; margin-bottom: 25px; line-height: 1.1; font-weight: 600; text-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+.hero h1 span { color: var(--gold); font-style: italic; font-weight: 400; }
+.hero p { font-size: 1.15rem; max-width: 650px; margin: 0 0 40px 0; line-height: 1.9; color: #e2e8f0; font-weight: 300; }
+.btn-primary { padding: 18px 45px; background: transparent; color: var(--champagne); border: 1px solid var(--champagne); font-weight: 400; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: inline-block; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; cursor: pointer; backdrop-filter: blur(5px); pointer-events: auto; }
+.btn-primary:hover { background: var(--champagne); color: #000a14; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2); }
+
+.scroll-indicator { position: absolute; bottom: 40px; left: 8%; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; opacity: 0.6; }
+.scroll-indicator span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; }
+.scroll-line { margin-left: 20px; width: 1px; height: 40px; background: rgba(255,255,255,0.2); position: relative; overflow: hidden; }
+.scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: var(--gold); animation: drop 2s infinite ease-in-out; }
+@keyframes drop { 0% { top: -50%; } 100% { top: 150%; } }
+
+/* ==========================================================================
+   GLOBAL UTILITIES
+   ========================================================================== */
+section { padding: 120px 8%; pointer-events: none; }
+.section-header { text-align: center; margin-bottom: 70px; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 600; margin-bottom: 25px; }
+.section-header h2::after { content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 25px auto 0; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform;}
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   FEATURE 1: THE GRADING TIMELINE
+   ========================================================================== */
+.timeline-container { position: relative; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+.timeline-line-bg { position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.1); }
+.timeline-line-fill { position: absolute; left: 50px; top: 0; width: 2px; height: 0%; background: var(--gold); transition: height 0.1s linear; will-change: height; box-shadow: 0 0 15px var(--gold); }
+.timeline-node { display: flex; align-items: center; margin-bottom: 80px; opacity: 0.3; transition: opacity 0.6s ease; }
+.timeline-node.active { opacity: 1; }
+.node-point { width: 20px; height: 20px; border-radius: 50%; background: #000a14; border: 2px solid rgba(255,255,255,0.3); z-index: 2; margin-left: 41px; transition: all 0.4s ease; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+.timeline-node.active .node-point { border-color: var(--gold); background: var(--gold); box-shadow: 0 0 20px 5px rgba(212, 175, 55, 0.4); }
+.node-content { margin-left: 50px; background: rgba(0, 15, 30, 0.6); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px); flex-grow: 1; }
+.node-content h4 { color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; }
+
+/* ==========================================================================
+   NEW FEATURE: STICKY STACKING PORTFOLIO CARDS
+   ========================================================================== */
+.portfolio-section { position: relative; padding-bottom: 200px; }
+.portfolio-deck { position: relative; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; pointer-events: auto; }
+
+.portfolio-card {
+  position: sticky;
+  display: flex;
+  width: 100%;
+  height: 70vh; /* Premium cinematic height */
+  min-height: 500px;
+  max-height: 700px;
+  border-radius: 16px; /* Smooth modern corners */
+  overflow: hidden;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.7); /* Deep shadow separates the stacked layers */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255,255,255,0.3); /* Catch light on the top edge */
+}
+
+/* The Stacking Logic - Gives them a beautiful cascading effect as you scroll */
+#card-1 { top: 120px; z-index: 1; }
+#card-2 { top: 140px; z-index: 2; }
+#card-3 { top: 160px; z-index: 3; }
+#card-4 { top: 180px; z-index: 4; }
+
+/* Container Colors (Keeping the corrugated steel vibe) */
+.card-info {
+  width: 45%; /* Text takes up left side */
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-image: 
+    linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.8)),
+    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(0, 0, 0, 0.4) 30px, rgba(0, 0, 0, 0.8) 60px);
+}
+.bg-green { background-color: #1a4328; }
+.bg-orange { background-color: #c44900; }
+.bg-red { background-color: #7a2015; }
+.bg-blue { background-color: #12355b; }
+
+.card-info h3 { color: var(--champagne); margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 2.8rem; font-style: italic; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.card-info p { color: #ffffff; line-height: 1.8; font-weight: 300; font-size: 1.1rem; text-shadow: 0 2px 5px rgba(0,0,0,0.8); margin-bottom: 40px; }
+.card-id { font-family: 'Inter', monospace; font-size: 0.9rem; font-weight: 700; color: rgba(255, 255, 255, 0.5); letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
+.card-specs { position: absolute; bottom: 40px; left: 60px; font-family: 'Inter', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
+
+/* Massive Image Panel */
+.card-visual {
+  width: 55%; /* Image takes up the right side */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: inset 20px 0 50px rgba(0,0,0,0.6); /* blends the seam between text and image */
+}
+.card-overlay {
+  position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 40%);
+}
+
+.catalog-link {
+  display: inline-flex; align-items: center; gap: 15px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease;
+}
+.catalog-link:hover { color: #fff; }
+.catalog-link::after { content: '→'; font-size: 1.2rem; transition: transform 0.3s ease; }
+.catalog-link:hover::after { transform: translateX(10px); }
+
+/* ==========================================================================
+   FEATURE 2: BUILD YOUR CONTAINER CONFIGURATOR
+   ========================================================================== */
+.config-wrapper { background: rgba(0, 10, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; pointer-events: auto; backdrop-filter: blur(15px); }
+.config-controls { display: flex; flex-direction: column; gap: 25px; }
+.config-visual { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+.slider-group label { display: flex; justify-content: space-between; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; font-weight: 500;}
+.slider-group label span { color: var(--gold); }
+input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 50%; background: var(--gold); margin-top: -6px; transition: transform 0.1s; box-shadow: 0 0 10px rgba(212,175,55,0.5); }
+input[type=range]:active::-webkit-slider-thumb { transform: scale(1.3); }
+
+.container-graphic { width: 100%; height: 120px; background: #000; border: 2px solid rgba(255,255,255,0.2); border-radius: 4px; display: flex; overflow: hidden; position: relative; box-shadow: inset 0 0 20px rgba(0,0,0,1); }
+.bar-segment { height: 100%; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.8rem; overflow: hidden; box-shadow: inset -2px 0 10px rgba(0,0,0,0.3); }
+.bar-vintage { background: #1a4328; } .bar-shoes { background: #c44900; } .bar-rags { background: #7a2015; } .bar-wipers { background: #12355b; }
+.config-stats { display: flex; justify-content: space-between; width: 100%; margin-top: 20px; font-family: 'Inter', monospace; color: var(--champagne); font-size: 1.1rem; }
+.size-selector { display: flex; gap: 15px; margin-bottom: 20px; }
+.size-btn { flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+.size-btn.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 600; }
+
+/* ==========================================================================
+   FEATURE 3: PERFECT 3D GLOBE
+   ========================================================================== */
+.globe-section { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 120px 8%; }
+.globe-text-content { flex: 0 1 450px; text-align: left; }
+.globe-text-content .section-header { text-align: left; margin-bottom: 0; }
+.globe-text-content .section-header h2::after { margin: 25px 0 0 0; }
+.globe-text-content .section-header p { margin: 0; font-size: 1.15rem; line-height: 1.9; }
+
+#globe-wrapper { flex: 1; width: 100%; max-width: 750px; aspect-ratio: 1 / 1; position: relative; display: flex; justify-content: center; align-items: center; margin: 0 auto; }
+#globe-container { width: 100%; height: 100%; background: transparent; pointer-events: auto; cursor: grab; }
+#globe-container:active { cursor: grabbing; }
+
+.marker-container { position: relative; }
+.globe-marker { width: 12px; height: 12px; background: rgba(212, 175, 55, 0.4); border: 1px solid var(--gold); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(212, 175, 55, 0.8); }
+.globe-marker.hub { width: 16px; height: 16px; background: #fff; border-color: var(--gold); box-shadow: 0 0 15px #fff; }
+.globe-label { position: absolute; top: 0; left: 0; background: rgba(0, 10, 20, 0.9); border: 1px solid var(--gold); color: var(--champagne); padding: 6px 12px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; pointer-events: none; transform: translate(-50%, -150%); white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+/* ==========================================================================
+   FEATURE 4: LIVE ENVIRONMENTAL TICKER
+   ========================================================================== */
+.sustainability-ticker { display: flex; justify-content: space-around; background: rgba(0, 5, 10, 0.8); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: 60px; }
+.ticker-item { text-align: center; }
+.ticker-num { font-family: 'Inter', monospace; font-size: 2.5rem; font-weight: 700; color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.4); margin-bottom: 10px; display: block; }
+.ticker-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
+
+/* ==========================================================================
+   OTHER SECTIONS 
+   ========================================================================== */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; margin-bottom: 80px; }
+.stat-item { padding: 30px 20px; position: relative; }
+.stat-item:not(:last-child)::after { content: ''; position: absolute; right: -20px; top: 20%; height: 60%; width: 1px; background: rgba(255,255,255,0.1); }
+.stat-number { font-size: 4rem; font-family: 'Playfair Display', serif; font-weight: 400; color: var(--champagne); margin-bottom: 15px; }
+.stat-text { font-size: 0.75rem; color: #829ab1; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; }
+
+/* ==========================================================================
+   SUSTAINABILITY FEATURE CARDS (missing styles added)
+   ========================================================================== */
+.luxury-container { background: rgba(0, 15, 30, 0.65); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid rgba(255,255,255,0.2); padding: 50px; border-radius: 8px; backdrop-filter: blur(12px); pointer-events: auto; position: relative; }
+.container-green { border-top-color: #10b981; }
+.container-blue  { border-top-color: var(--gold); }
+.container-id { font-family: 'Inter', monospace; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+.luxury-container h3 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--champagne); margin-bottom: 15px; font-weight: 600; }
+.luxury-container p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; font-weight: 300; }
+.container-specs { font-family: 'Inter', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; display: block; }
+
+.contact-wrapper { background: rgba(0, 5, 10, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-top: 1px solid rgba(255, 255, 255, 0.15); padding: 80px; backdrop-filter: blur(25px); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); pointer-events: auto; }
+.contact-text h3 { font-size: 2.5rem; font-family: 'Playfair Display', serif; margin-bottom: 25px; color: var(--champagne); }
+.contact-text p { color: var(--text-muted); line-height: 1.9; font-size: 1rem; font-weight: 300; margin-bottom: 30px; }
+.form-control { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 15px 0; color: white; font-size: 0.95rem; font-family: 'Inter', sans-serif; margin-bottom: 35px; transition: all 0.4s ease; }
+.form-control::placeholder { color: rgba(255,255,255,0.4); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+.form-control:focus { outline: none; border-bottom: 1px solid var(--champagne); background: rgba(255,255,255,0.02); padding-left: 10px; }
+select.form-control { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+select.form-control option { background: #000a14; color: white; }
+textarea.form-control { height: 100px; resize: none; }
+
+footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0, 5, 10, 0.9); }
+.footer-text { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #64748b; }
+
+/* ==========================================================================
+   MOBILE — TABLET & PHONE  (≤ 950px)
+   ========================================================================== */
+@media (max-width: 950px) {
+
+  /* Global spacing */
+  section { padding: 70px 6%; }
+  .section-header { margin-bottom: 45px; }
+  .section-header h2 { font-size: 2.5rem; }
+  .content-layer { padding-bottom: 40px; }
+
+  /* Navigation */
+  nav { padding: 18px 6%; }
+  nav ul { display: none; }
+
+  /* Hero */
+  .hero { padding: 0 6%; padding-top: 110px; min-height: 100dvh; }
+  .hero h1 { font-size: 3rem; }
+  .hero p { font-size: 1rem; max-width: 100%; }
+  .accent-subtitle { font-size: 0.75rem; letter-spacing: 2.5px; }
+  .scroll-indicator { left: 6%; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px; }
+  .stat-item:not(:last-child)::after { display: none; }
+  .stat-number { font-size: 3.2rem; }
+  .stat-item { padding: 20px 10px; }
+
+  /* Timeline — repositioned so line+dot+content fit a 375px screen */
+  .timeline-line-bg  { left: 18px; }
+  .timeline-line-fill { left: 18px; }
+  .node-point { margin-left: 9px; width: 18px; height: 18px; }
+  .node-content { margin-left: 22px; padding: 20px; }
+  .node-content h4 { font-size: 1.2rem; }
+  .timeline-node { margin-bottom: 45px; }
+
+  /* Portfolio cards — disable sticky, stack cleanly */
+  .portfolio-section { padding-bottom: 60px; }
+  .portfolio-deck { gap: 20px; }
+  .portfolio-card { flex-direction: column; height: auto; min-height: auto; position: relative !important; }
+  #card-1, #card-2, #card-3, #card-4 { top: auto !important; }
+  .card-info { width: 100%; padding: 30px 22px 65px; }
+  .card-info h3 { font-size: 2rem; margin-bottom: 12px; }
+  .card-info p { font-size: 0.95rem; margin-bottom: 25px; }
+  .card-visual { width: 100%; height: 230px; box-shadow: inset 0 -20px 40px rgba(0,0,0,0.6); }
+  .card-specs { left: 22px; bottom: 22px; }
+  .card-overlay { background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7) 100%); }
+
+  /* Configurator */
+  .config-wrapper { grid-template-columns: 1fr; padding: 30px 20px; gap: 30px; }
+  .size-selector { flex-direction: column; gap: 10px; }
+  .size-btn { font-size: 0.72rem; padding: 12px 10px; letter-spacing: 0.5px; width: 100%; }
+  .config-stats { font-size: 0.9rem; flex-wrap: wrap; gap: 8px; }
+
+  /* Globe */
+  .globe-section { flex-direction: column; text-align: center; gap: 30px; padding: 70px 6%; }
+  .globe-text-content { flex: none; max-width: 100%; text-align: center; margin-bottom: 0; }
+  .globe-text-content .section-header { text-align: center; margin-bottom: 25px; }
+  .globe-text-content .section-header h2::after { margin: 25px auto 0; }
+  .globe-text-content .section-header p { margin: 0 auto; }
+  .globe-features { display: none; } /* condense on mobile — info is in marquee already */
+  #globe-wrapper { max-width: 360px; }
+
+  /* Sustainability */
+  .grid { grid-template-columns: 1fr !important; }
+  .luxury-container { padding: 35px 25px; }
+  .sustainability-ticker { flex-direction: column; gap: 20px; padding: 25px 20px; }
+  .ticker-num { font-size: 2rem; }
+
+  /* FAQ */
+  .faq-question { font-size: 1rem; padding: 20px 0; }
+  .faq-icon { width: 26px; height: 26px; min-width: 26px; font-size: 1.2rem; }
+  .faq-answer-inner { font-size: 0.9rem; }
+
+  /* Contact */
+  .contact-wrapper { grid-template-columns: 1fr; padding: 35px 20px; gap: 35px; }
+  .contact-text h3 { font-size: 2rem; }
+  /* Prevent iOS zoom on form inputs (font-size must be ≥ 16px) */
+  .form-control { font-size: 1rem; }
+  select.form-control { font-size: 1rem; }
+
+  /* Footer */
+  footer { padding: 30px 20px; }
+
+  /* WhatsApp — smaller, no tooltip on touch */
+  .whatsapp-btn { bottom: 20px; right: 20px; width: 52px; height: 52px; }
+  .whatsapp-btn svg { width: 26px; height: 26px; }
+  .whatsapp-tooltip { display: none; }
+}
+
+/* ==========================================================================
+   MOBILE — SMALL PHONES  (≤ 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  section { padding: 55px 5%; }
+  nav { padding: 16px 5%; }
+  .logo { font-size: 1.5rem; }
+  .hero { padding: 0 5%; padding-top: 95px; }
+  .hero h1 { font-size: 2.5rem; line-height: 1.15; }
+  .hero p { font-size: 0.95rem; }
+  .btn-primary { padding: 15px 30px; font-size: 0.78rem; }
+  .section-header h2 { font-size: 2rem; }
+  .stat-number { font-size: 2.8rem; }
+  .stats-grid { gap: 10px; }
+  .preloader-logo { font-size: 2.4rem; }
+  .preloader-tagline { letter-spacing: 3px; font-size: 0.65rem; }
+  .ticker-num { font-size: 1.8rem; }
+  .ticker-label { font-size: 0.65rem; }
+  .card-info h3 { font-size: 1.75rem; }
+  .faq-question { font-size: 0.92rem; }
+  #globe-wrapper { max-width: 300px; }
+  .mobile-nav { width: 85vw; }
+}
+
+/* ==========================================================================
+   NEW: PRELOADER
+   ========================================================================== */
+#preloader { position: fixed; inset: 0; z-index: 9999; background: #000a14; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 1s ease, visibility 1s ease; }
+#preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-logo { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: #fff; letter-spacing: 2px; opacity: 0; animation: plFadeUp 1s ease 0.4s forwards; }
+.preloader-logo span { color: var(--gold); font-style: italic; }
+.preloader-tagline { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 6px; color: var(--champagne); opacity: 0; margin-top: 12px; animation: plFadeUp 1s ease 0.9s forwards; }
+.preloader-bar-track { width: 200px; height: 1px; background: rgba(255,255,255,0.1); margin-top: 40px; overflow: hidden; }
+.preloader-bar-fill { height: 100%; width: 0%; background: var(--gold); box-shadow: 0 0 12px var(--gold); animation: plBarFill 1.6s ease 0.7s forwards; }
+@keyframes plFadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes plBarFill { from { width: 0%; } to { width: 100%; } }
+
+/* ==========================================================================
+   NEW: SCROLL PROGRESS BAR
+   ========================================================================== */
+#scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(to right, var(--gold), var(--champagne)); z-index: 9998; box-shadow: 0 0 8px var(--gold); pointer-events: none; }
+
+/* ==========================================================================
+   NEW: HAMBURGER & MOBILE NAV
+   ========================================================================== */
+.hamburger-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; z-index: 1002; }
+.hamburger-btn span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: center; }
+.hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.4s ease; backdrop-filter: blur(3px); }
+.mobile-nav-overlay.open { opacity: 1; visibility: visible; }
+.mobile-nav { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: rgba(0,5,15,0.98); backdrop-filter: blur(30px); z-index: 1001; padding: 110px 40px 40px; transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; }
+.mobile-nav.open { right: 0; }
+.mobile-nav a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.3s ease, padding-left 0.3s ease; font-weight: 500; display: block; }
+.mobile-nav a:hover { color: var(--gold); padding-left: 8px; }
+.mobile-nav-footer { margin-top: auto; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.2); padding-top: 30px; }
+@media (max-width: 950px) { .hamburger-btn { display: flex; } }
+
+/* ==========================================================================
+   NEW: WHATSAPP FLOAT BUTTON
+   ========================================================================== */
+.whatsapp-btn { position: fixed; bottom: 35px; right: 35px; z-index: 998; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
+.whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; position: relative; z-index: 1; }
+.whatsapp-pulse { position: absolute; inset: 0; border-radius: 50%; background: rgba(37,211,102,0.5); animation: waPulse 2.5s ease-out infinite; }
+.whatsapp-tooltip { position: absolute; right: 70px; background: rgba(0,10,20,0.95); border: 1px solid rgba(212,175,55,0.4); color: var(--champagne); padding: 8px 18px; border-radius: 4px; white-space: nowrap; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+@keyframes waPulse { 0% { transform: scale(1); opacity: 0.7; } 70%, 100% { transform: scale(1.6); opacity: 0; } }
+
+/* ==========================================================================
+   NEW: DESTINATION MARQUEE
+   ========================================================================== */
+.marquee-strip { overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,5,10,0.6); pointer-events: none; }
+.marquee-track { display: flex; gap: 50px; padding: 22px 0; animation: marqueeScroll 40s linear infinite; width: max-content; align-items: center; }
+.marquee-item { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.4); white-space: nowrap; font-weight: 500; }
+.marquee-item .flag { font-size: 1.3rem; line-height: 1; }
+.marquee-diamond { color: var(--gold); opacity: 0.35; font-size: 0.55rem; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ==========================================================================
+   NEW: FAQ ACCORDION
+   ========================================================================== */
+.faq-list { max-width: 900px; margin: 0 auto; pointer-events: auto; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 28px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; transition: color 0.3s ease; }
+.faq-question:hover { color: var(--champagne); }
+.faq-icon { width: 30px; height: 30px; min-width: 30px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--gold); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); line-height: 1; font-family: 'Inter', sans-serif; font-weight: 300; }
+.faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); background: rgba(212,175,55,0.1); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
+.faq-item.open .faq-answer { max-height: 400px; }
+.faq-answer-inner { padding-bottom: 30px; color: var(--text-muted); line-height: 1.85; font-weight: 300; font-size: 0.95rem; }
+
+/* ==========================================================================
+   HERO ENHANCEMENT: FILM GRAIN TEXTURE
+   ========================================================================== */
+.film-grain { position: fixed; inset: 0; z-index: 8; pointer-events: none; opacity: 0.045; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; animation: filmGrain 0.2s steps(1) infinite; }
+@keyframes filmGrain {
+  0%   { background-position:   0%   0%; }
+  10%  { background-position:  -5% -10%; }
+  20%  { background-position: -15%   5%; }
+  30%  { background-position:   7% -25%; }
+  40%  { background-position:  20%  25%; }
+  50%  { background-position: -25%  10%; }
+  60%  { background-position:  15%   5%; }
+  70%  { background-position:   0%  15%; }
+  80%  { background-position:  25%  35%; }
+  90%  { background-position: -10%  10%; }
+}
+
+/* ==========================================================================
+   HERO ENHANCEMENT: PARTICLE CANVAS
+   ========================================================================== */
+#hero-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+/* ==========================================================================
+   HERO ENHANCEMENT: LAYERED VIDEO OVERLAYS
+   ========================================================================== */
+.video-overlay-left   { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,5,15,0.88) 0%, rgba(0,5,15,0.45) 45%, transparent 72%); }
+.video-overlay-bottom { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,5,15,1) 0%, rgba(0,5,15,0.55) 18%, transparent 45%); }
+.video-overlay-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 38%, rgba(0,0,0,0.72) 100%); }
+
+/* ==========================================================================
+   HERO ENHANCEMENT: STAGGERED TEXT ENTRANCE
+   ========================================================================== */
+.hero-content .accent-subtitle { opacity: 0; transform: translateY(18px); animation: heroReveal 0.9s cubic-bezier(0.16,1,0.3,1) 2.4s forwards; }
+.hero-content h1              { opacity: 0; transform: translateY(38px); animation: heroReveal 1.1s cubic-bezier(0.16,1,0.3,1) 2.7s forwards; }
+.hero-content > p             { opacity: 0; transform: translateY(18px); animation: heroReveal 1.0s cubic-bezier(0.16,1,0.3,1) 3.0s forwards; }
+.hero-content .hero-cta       { opacity: 0; transform: translateY(18px); animation: heroReveal 1.0s cubic-bezier(0.16,1,0.3,1) 3.3s forwards; }
+@keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
+
+/* ==========================================================================
+   HERO ENHANCEMENT: DIAGONAL LIGHT SWEEP
+   ========================================================================== */
+.hero-light-sweep { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hero-light-sweep::after { content: ''; position: absolute; top: -60%; left: -200%; width: 80%; height: 220%; background: linear-gradient(105deg, transparent 30%, rgba(212,175,55,0.055) 50%, transparent 70%); transform: skewX(-15deg); animation: lightSweep 12s ease-in-out 4s infinite; }
+@keyframes lightSweep { 0%,100% { left:-200%; opacity:0; } 4% { opacity:1; } 96% { opacity:1; } 50% { left:300%; } }
+
+/* ==========================================================================
+   HERO ENHANCEMENT: LIVE ROUTE HUD
+   ========================================================================== */
+.hero-hud { position: absolute; bottom: 42px; right: 8%; display: flex; align-items: center; gap: 10px; opacity: 0; animation: heroReveal 1s ease 3.8s forwards; pointer-events: none; }
+.hud-live-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; flex-shrink: 0; animation: hudPulse 2s ease infinite; }
+@keyframes hudPulse { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+.hud-text { font-family: 'Inter', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2.5px; color: rgba(255,255,255,0.35); white-space: nowrap; }
+.hud-text strong { color: rgba(255,255,255,0.65); font-weight: 600; }
+@media (max-width: 950px) { .hero-hud { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-logo">M.F <span>Lakhani</span></div>
+  <div class="preloader-tagline">Premium Global Export</div>
+  <div class="preloader-bar-track"><div class="preloader-bar-fill"></div></div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
+
+<!-- HERO PARTICLE CANVAS -->
+<canvas id="hero-canvas"></canvas>
+
+<!-- FILM GRAIN TEXTURE OVERLAY -->
+<div class="film-grain"></div>
+
+<div id="ocean-background"></div>
+<div class="water-tint"></div>
+
+<div id="hero-video-wrapper">
+  <video autoplay muted loop playsinline>
+    <source src="ship.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <div class="video-overlay-left"></div>
+  <div class="video-overlay-bottom"></div>
+  <div class="video-overlay-vignette"></div>
+</div>
+
+<div class="content-layer">
+  
+  <nav>
+    <div class="logo">M.F <span>Lakhani</span></div>
+    <ul>
+      <li><a href="#about">The Company</a></li>
+      <li><a href="#process">The Process</a></li>
+      <li><a href="#products">Collections</a></li>
+      <li><a href="#global-network">Logistics</a></li>
+      <li><a href="#contact">Inquire</a></li>
+    </ul>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" class="mobile-nav-link">The Company</a>
+    <a href="#process" class="mobile-nav-link">The Process</a>
+    <a href="#products" class="mobile-nav-link">Collections</a>
+    <a href="#global-network" class="mobile-nav-link">Logistics</a>
+    <a href="#contact" class="mobile-nav-link">Inquire</a>
+    <div class="mobile-nav-footer">M.F Lakhani & Sons &copy; 2026</div>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="hero-light-sweep"></div>
+
+    <div class="hero-content">
+      <span class="accent-subtitle">Established 2026 • Global Trade</span>
+      <h1>Global <span>Textile</span><br>Export Solutions</h1>
+      <p>M.F Lakhani & Sons supplies premium vintage clothing, graded used apparel, and circular textile recycling products to international wholesalers worldwide.</p>
+      <a href="#contact" class="btn-primary hero-cta">Request a Consultation</a>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <div class="hero-hud">
+      <div class="hud-live-dot"></div>
+      <div class="hud-text"><strong>KHI</strong> &rarr; DXB &rarr; MSA &rarr; RTM &rarr; HOU &nbsp;&nbsp;|&nbsp;&nbsp; LIVE EXPORT ROUTES</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header reveal">
+      <h2>The Global Standard</h2>
+      <p>Premium B2B textile export solutions serving international markets via seamless ocean freight logistics and uncompromising quality control.</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="35">0</span>+</div><div class="stat-text">Countries Served</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="1200">0</span>+</div><div class="stat-text">Containers Exported</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="15">0</span></div><div class="stat-text">Years Experience</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="98">0</span>%</div><div class="stat-text">Client Retention</div></div>
+    </div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="flag">🇵🇰</span> Pakistan</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇦🇪</span> UAE</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇰🇪</span> Kenya</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇳🇱</span> Netherlands</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇧🇷</span> Brazil</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇺🇸</span> USA</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇬🇧</span> United Kingdom</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇩🇪</span> Germany</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇿🇦</span> South Africa</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇳🇬</span> Nigeria</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇹🇷</span> Turkey</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇵🇱</span> Poland</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇲🇦</span> Morocco</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇮🇳</span> India</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇦🇺</span> Australia</div><div class="marquee-diamond">◆</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee-item"><span class="flag">🇵🇰</span> Pakistan</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇦🇪</span> UAE</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇰🇪</span> Kenya</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇳🇱</span> Netherlands</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇧🇷</span> Brazil</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇺🇸</span> USA</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇬🇧</span> United Kingdom</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇩🇪</span> Germany</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇿🇦</span> South Africa</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇳🇬</span> Nigeria</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇹🇷</span> Turkey</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇵🇱</span> Poland</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇲🇦</span> Morocco</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇮🇳</span> India</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇦🇺</span> Australia</div><div class="marquee-diamond">◆</div>
+    </div>
+  </div>
+
+  <section id="process" style="padding-top: 0;">
+    <div class="section-header reveal">
+      <h2>Meticulous Sorting Process</h2>
+      <p>A transparent look at how we transform raw collections into retail-ready global shipments.</p>
+    </div>
+    <div class="timeline-container interactive-module reveal">
+      <div class="timeline-line-bg"></div>
+      <div class="timeline-line-fill" id="timeline-fill"></div>
+      
+      <div class="timeline-node" data-node="1">
+        <div class="node-point"></div>
+        <div class="node-content">
+          <h4>1. Raw Sourcing</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Acquiring pristine, original credential donations directly from premium collection points in North America and Europe.</p>
+        </div>
+      </div>
+      <div class="timeline-node" data-node="2">
+        <div class="node-point"></div>
+        <div class="node-content">
+          <h4>2. Quality Control Grading</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Our specialists hand-sort textiles into over 150 distinct categories, strictly separating Grade A, B, and C items.</p>
+        </div>
+      </div>
+      <div class="timeline-node" data-node="3">
+        <div class="node-point"></div>
+        <div class="node-content">
+          <h4>3. High-Density Baling</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Apparel is processed through industrial balers, packing up to 100lbs (45kg) per block to maximize container freight efficiency.</p>
+        </div>
+      </div>
+      <div class="timeline-node" data-node="4">
+        <div class="node-point"></div>
+        <div class="node-content">
+          <h4>4. Global Export</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Containers are sealed, fumigated, and dispatched with full international customs documentation to wholesale partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="portfolio-section">
+    <div class="section-header reveal">
+      <h2>Export Portfolios</h2>
+      <p>Scroll to explore our containerized collections, meticulously graded for wholesale distribution.</p>
+    </div>
+    
+    <div class="portfolio-deck">
+      
+      <div class="portfolio-card" id="card-1">
+        <div class="card-info bg-green">
+          <div class="card-id">MFL-U 260013</div>
+          <h3>Premium Vintage</h3>
+          <p>Meticulously hand-sorted retro and vintage apparel ready for international retail markets, boutiques, and high-end wholesale buyers.</p>
+          <a href="#contact" class="catalog-link">Inquire About Vintage</a>
+          <div class="card-specs">MAX GR. 30,480 KG</div>
+        </div>
+        <div class="card-visual" style="background-image: url('vintage.png');">
+          <div class="card-overlay"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" id="card-2">
+        <div class="card-info bg-orange">
+          <div class="card-id">MFL-U 260014</div>
+          <h3>Used Shoes</h3>
+          <p>Bulk wholesale footwear, paired and banded. Sacks include athletic, dress, and casual styles sorted by grade and market requirement.</p>
+          <a href="#contact" class="catalog-link">Inquire About Footwear</a>
+          <div class="card-specs">MAX GR. 30,480 KG</div>
+        </div>
+        <div class="card-visual" style="background-image: url('shoes.png');">
+          <div class="card-overlay"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" id="card-3">
+        <div class="card-info bg-red">
+          <div class="card-id">MFL-U 260015</div>
+          <h3>Mixed Rags</h3>
+          <p>Unsorted institutional clothing ideal for grading facilities or downcycling into industrial wiping materials and insulation.</p>
+          <a href="#contact" class="catalog-link">Inquire About Materials</a>
+          <div class="card-specs">MAX GR. 30,480 KG</div>
+        </div>
+        <div class="card-visual" style="background-image: url('rags.png');">
+          <div class="card-overlay"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" id="card-4">
+        <div class="card-info bg-blue">
+          <div class="card-id">MFL-U 260016</div>
+          <h3>Industrial Wipers</h3>
+          <p>Cut and processed textile wiping rags (white cotton, colored cotton, fleece) packaged in highly compressed bales for industrial use.</p>
+          <a href="#contact" class="catalog-link">Inquire About Wipers</a>
+          <div class="card-specs">MAX GR. 30,480 KG</div>
+        </div>
+        <div class="card-visual" style="background-image: url('wipers.png');">
+          <div class="card-overlay"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="configurator">
+    <div class="section-header reveal">
+      <h2>Build Your Shipment</h2>
+      <p>Configure a custom 20FT or 40FT container to meet your market's exact volume requirements.</p>
+    </div>
+    
+    <div class="config-wrapper interactive-module reveal">
+      <div class="config-controls">
+        <div class="size-selector">
+          <button class="size-btn active" data-size="20">20FT Container (14,000kg)</button>
+          <button class="size-btn" data-size="40">40FT Container (28,000kg)</button>
+        </div>
+        
+        <div class="slider-group">
+          <label>Premium Vintage <span id="val-vintage">25%</span></label>
+          <input type="range" id="slide-vintage" min="0" max="100" value="25" class="config-slider">
+        </div>
+        <div class="slider-group">
+          <label>Used Shoes <span id="val-shoes">25%</span></label>
+          <input type="range" id="slide-shoes" min="0" max="100" value="25" class="config-slider">
+        </div>
+        <div class="slider-group">
+          <label>Mixed Rags <span id="val-rags">25%</span></label>
+          <input type="range" id="slide-rags" min="0" max="100" value="25" class="config-slider">
+        </div>
+        <div class="slider-group">
+          <label>Industrial Wipers <span id="val-wipers">25%</span></label>
+          <input type="range" id="slide-wipers" min="0" max="100" value="25" class="config-slider">
+        </div>
+      </div>
+      
+      <div class="config-visual">
+        <div class="container-graphic">
+          <div class="bar-segment bar-vintage" id="bar-vintage" style="width: 25%;">VINTAGE</div>
+          <div class="bar-segment bar-shoes" id="bar-shoes" style="width: 25%;">SHOES</div>
+          <div class="bar-segment bar-rags" id="bar-rags" style="width: 25%;">RAGS</div>
+          <div class="bar-segment bar-wipers" id="bar-wipers" style="width: 25%;">WIPERS</div>
+        </div>
+        <div class="config-stats">
+          <span>Capacity: <span id="stat-capacity">100</span>%</span>
+          <span>Est. Weight: <span id="stat-weight">14,000</span> KG</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="margin-top: 30px; width: 100%; text-align: center;">Request Quote for this Build</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="global-network" class="globe-section">
+    <div class="globe-text-content reveal">
+      <div class="section-header">
+        <h2>Global Transit Network</h2>
+        <p>Drag to spin the globe and explore our intercontinental freight corridors. Scroll past to continue.</p>
+      </div>
+      
+      <div class="globe-features" style="margin-top: 40px;">
+        <div style="margin-bottom: 25px;">
+          <h4 style="color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px;">Karachi Hub (HQ)</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Our central sorting and distribution matrix, orchestrating thousands of TEUs annually.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px;">Intercontinental Reach</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Seamless maritime lines connecting your business to Dubai, Mombasa, Rotterdam, Santos, and Houston.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="globe-wrapper">
+      <div id="globe-container" class="interactive-module reveal"></div>
+    </div>
+  </section>
+
+  <section id="sustainability">
+    <div class="section-header reveal">
+      <h2>Circular Economy</h2>
+      <p>We believe in textile recovery, landfill diversion, and giving garments a second life on a global scale.</p>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+      <div class="luxury-container container-green reveal">
+        <div class="container-id">ECO-01</div>
+        <h3>Zero-Waste Processing</h3>
+        <p>Items that do not pass our strict wearable grading standards are seamlessly transitioned into our wiping rag and recycling streams.</p>
+        <div class="container-specs">100% DIVERTED</div>
+      </div>
+      <div class="luxury-container container-blue reveal">
+        <div class="container-id">ECO-02</div>
+        <h3>Carbon Reduction</h3>
+        <p>By keeping millions of pounds of clothing in circulation, we heavily reduce the environmental impact associated with new textile manufacturing.</p>
+        <div class="container-specs">REDUCE / REUSE</div>
+      </div>
+    </div>
+    
+    <div class="sustainability-ticker reveal">
+      <div class="ticker-item">
+        <span class="ticker-num" id="tick-water">8,450,200</span>
+        <span class="ticker-label">Gallons of Water Saved</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num" id="tick-landfill">2,140,500</span>
+        <span class="ticker-label">LBS Diverted from Landfill</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num" id="tick-co2">950,300</span>
+        <span class="ticker-label">KG of CO2 Prevented</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-header reveal">
+      <h2>Common Questions</h2>
+      <p>Everything international wholesale buyers ask before placing their first container order.</p>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question">What is the Minimum Order Quantity (MOQ)?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Our minimum order is one full container load — either a 20FT (approximately 14,000 kg) or a 40FT (approximately 28,000 kg). We do not offer less-than-container (LCL) shipments for standard product lines. Mixed-product containers are available via our Shipment Configurator above.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How are your textiles graded and sorted?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">All incoming donations are processed at our Karachi facility through a multi-stage grading system. Garments are classified into Grade A (retail-ready, minimal wear), Grade B (minor defects, suitable for resale markets), and Grade C (recycling/rag stream). Over 150 sub-categories are used to ensure precision sorting matched to each client's market requirements.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What shipping terms (Incoterms) do you offer?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We export primarily on FOB (Free On Board) Karachi terms, with CIF (Cost, Insurance & Freight) available to major destination ports including Dubai (Jebel Ali), Mombasa, Rotterdam, Houston, and Santos. All shipments include phytosanitary fumigation and full export documentation compliant with destination country import regulations.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What is the typical lead time from order confirmation to shipment?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Standard lead time is 10–21 business days from deposit receipt to container loading, depending on product mix and availability. Custom-graded or specialty orders (e.g., specific brand vintage, single-category containers) may require up to 30 days. Clients are provided with a Bill of Lading within 5 days of vessel departure.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We accept Telegraphic Transfer (T/T) bank wire as our primary payment method. A 30–50% deposit is required to confirm your order and begin processing, with the balance due prior to container release. Letter of Credit (L/C) arrangements are available for established clients with a verified trading history.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Can I request samples before committing to a full container?<div class="faq-icon">+</div></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer sample bales (approx. 45–100 kg) for new clients at a per-kg rate inclusive of courier shipping. Sample shipments allow you to assess grading quality and product mix before placing a full container order. Contact our team to discuss sample availability for your product category of interest.</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header reveal">
+      <h2>Initiate Partnership</h2>
+    </div>
+    
+    <div class="contact-wrapper reveal">
+      <div class="contact-text">
+        <h3>Global Network</h3>
+        <p>Connect with our logistics experts to structure a wholesale textile supply chain that flows perfectly with your business model.</p>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff;">
+          info@mflakhani.com<br>
+          <span style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Global Export Hub</span>
+        </p>
+      </div>
+      
+      <form id="contactForm">
+        <input type="text" class="form-control" placeholder="Full Name" required>
+        <input type="text" class="form-control" placeholder="Company Name" required>
+        
+        <select class="form-control" required>
+          <option value="" disabled selected>Primary Collection Interest</option>
+          <option>Premium Vintage</option>
+          <option>Used Shoes</option>
+          <option>Mixed Rags</option>
+          <option>Industrial Wipers</option>
+        </select>
+        
+        <textarea class="form-control" placeholder="Detailed requirements..." required></textarea>
+        <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">© 2026 M.F Lakhani & Sons • Sustainable Textile Export</p>
+  </footer>
+
+</div>
+
+<script>
+  let targetY = 0; 
+  let smoothY = 0; 
+  let currentVideoOpacity = 1;
+  let targetVideoOpacity = 1;
+
+  const videoWrapper = document.getElementById('hero-video-wrapper');
+  const timelineSection = document.getElementById('process');
+  const timelineFill = document.getElementById('timeline-fill');
+  const timelineNodes = document.querySelectorAll('.timeline-node');
+  const scrollProgressEl = document.getElementById('scroll-progress');
+
+  // ==========================================================================
+  // GLOBE INITIALIZATION
+  // ==========================================================================
+  let myGlobe = null;
+  const globeEl = document.getElementById('globe-container');
+  const globeWrapper = document.getElementById('globe-wrapper');
+
+  const tourStops = [
+    { lat: 24.86, lng: 67.00, name: "Karachi Hub", isHub: true },
+    { lat: 25.20, lng: 55.27, name: "Dubai", isHub: false },
+    { lat: -4.04, lng: 39.66, name: "Mombasa", isHub: false },
+    { lat: 51.92, lng: 4.47, name: "Rotterdam", isHub: false },
+    { lat: -23.96, lng: -46.32, name: "Santos", isHub: false },
+    { lat: 29.76, lng: -95.36, name: "Houston", isHub: false }
+  ];
+
+  const arcsData = tourStops.slice(1).map(stop => ({
+    startLat: tourStops[0].lat,
+    startLng: tourStops[0].lng,
+    endLat: stop.lat,
+    endLng: stop.lng,
+    color: ['rgba(245, 230, 195, 0.2)', '#D4AF37'] 
+  }));
+
+  let isGlobeHovered = false;
+
+  if(globeEl && globeWrapper) {
+    myGlobe = Globe()
+      (globeEl)
+      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+      .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+      .backgroundColor('rgba(0,0,0,0)') 
+      .showAtmosphere(true)
+      .atmosphereColor('#87CEFA') 
+      .atmosphereAltitude(0.15)
+      .htmlElementsData(tourStops)
+      .htmlElement(d => {
+        const el = document.createElement('div');
+        el.className = 'marker-container';
+        let safeName = d.name.replace(/\s/g, '');
+        let markerClass = d.isHub ? 'globe-marker hub' : 'globe-marker';
+        el.innerHTML = `
+            <div class="${markerClass}" id="marker-${safeName}"></div>
+            <div class="globe-label active" id="label-${safeName}">${d.name}</div>
+        `;
+        return el;
+      })
+      .arcsData(arcsData)
+      .arcColor('color')
+      .arcDashLength(0.5)
+      .arcDashGap(0.2)
+      .arcDashAnimateTime(2500)
+      .arcsTransitionDuration(0);
+
+    myGlobe.pointOfView({ lat: 20, lng: 40, altitude: 2.25 }, 0);
+    
+    myGlobe.controls().autoRotate = true;
+    myGlobe.controls().autoRotateSpeed = 1.2; 
+    myGlobe.controls().enableZoom = false; 
+
+    globeEl.addEventListener('mouseenter', () => isGlobeHovered = true);
+    globeEl.addEventListener('mouseleave', () => isGlobeHovered = false);
+
+    globeEl.addEventListener('wheel', (e) => {
+        if(!isGlobeHovered) return;
+        // Only intercept scroll on non-touch devices
+        if(window.matchMedia('(hover: none)').matches) return;
+
+        e.preventDefault();
+
+        myGlobe.controls().autoRotate = false;
+        const currentPov = myGlobe.pointOfView();
+        const newLng = currentPov.lng + (e.deltaY * 0.05);
+
+        myGlobe.pointOfView({ lat: currentPov.lat, lng: newLng, altitude: currentPov.altitude }, 0);
+
+        clearTimeout(globeEl.hoverTimeout);
+        globeEl.hoverTimeout = setTimeout(() => {
+            myGlobe.controls().autoRotate = true;
+        }, 1500);
+    }, { passive: false });
+
+    function resizeGlobe() {
+        if(myGlobe) {
+            myGlobe.width(globeWrapper.offsetWidth);
+            myGlobe.height(globeWrapper.offsetHeight);
+        }
+    }
+    setTimeout(resizeGlobe, 100); 
+    window.addEventListener('resize', resizeGlobe);
+  }
+
+  function renderAllSmoothAnimations() {
+    smoothY += (targetY - smoothY) * 0.08;
+    currentVideoOpacity += (targetVideoOpacity - currentVideoOpacity) * 0.08;
+
+    if (videoWrapper && Math.abs(targetVideoOpacity - currentVideoOpacity) > 0.001) {
+      videoWrapper.style.opacity = currentVideoOpacity;
+    }
+    requestAnimationFrame(renderAllSmoothAnimations);
+  }
+  renderAllSmoothAnimations(); 
+
+  window.addEventListener('scroll', () => {
+    targetY = window.scrollY;
+    if(scrollProgressEl) scrollProgressEl.style.width = ((targetY / (document.body.scrollHeight - window.innerHeight)) * 100) + '%';
+    let windowHeight = window.innerHeight;
+
+    targetVideoOpacity = Math.max(0, 1 - (targetY / (windowHeight * 0.7)));
+
+    if(timelineSection && timelineFill) {
+      let tTop = timelineSection.offsetTop;
+      let tHeight = timelineSection.offsetHeight;
+      if(targetY > tTop - (windowHeight/2) && targetY < tTop + tHeight) {
+        let tProgress = (targetY - (tTop - windowHeight/2)) / tHeight;
+        tProgress = Math.min(1, Math.max(0, tProgress));
+        timelineFill.style.height = `${tProgress * 100}%`;
+        
+        timelineNodes.forEach((node, index) => {
+          if(tProgress > (index * 0.25) + 0.1) node.classList.add('active');
+          else node.classList.remove('active');
+        });
+      }
+    }
+  }, { passive: true });
+
+  const sliders = document.querySelectorAll('.config-slider');
+  let containerMaxWeight = 14000; 
+
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      containerMaxWeight = this.dataset.size === "20" ? 14000 : 28000;
+      updateConfigurator();
+    });
+  });
+
+  sliders.forEach(slider => {
+    slider.addEventListener('input', function() {
+      let total = 0;
+      sliders.forEach(s => total += parseInt(s.value));
+      if(total > 100) {
+        let excess = total - 100;
+        sliders.forEach(s => {
+          if(s !== this && excess > 0 && parseInt(s.value) > 0) {
+            let reduce = Math.min(parseInt(s.value), excess);
+            s.value = parseInt(s.value) - reduce;
+            excess -= reduce;
+          }
+        });
+      }
+      updateConfigurator();
+    });
+  });
+
+  function updateConfigurator() {
+    let total = 0;
+    sliders.forEach(s => {
+      let val = parseInt(s.value);
+      total += val;
+      let type = s.id.split('-')[1];
+      document.getElementById(`val-${type}`).innerText = `${val}%`;
+      document.getElementById(`bar-${type}`).style.width = `${val}%`;
+    });
+    document.getElementById('stat-capacity').innerText = total;
+    let weight = Math.round(containerMaxWeight * (total/100));
+    document.getElementById('stat-weight').innerText = weight.toLocaleString();
+  }
+
+  let waterCount = 8450200;
+  let landfillCount = 2140500;
+  let co2Count = 950300;
+
+  setInterval(() => {
+    waterCount += Math.floor(Math.random() * 5);
+    landfillCount += Math.floor(Math.random() * 3);
+    co2Count += Math.floor(Math.random() * 2);
+
+    document.getElementById('tick-water').innerText = waterCount.toLocaleString();
+    document.getElementById('tick-landfill').innerText = landfillCount.toLocaleString();
+    document.getElementById('tick-co2').innerText = co2Count.toLocaleString();
+  }, 2500);
+
+  $(document).ready(function() {
+    try {
+      var $water = $('#ocean-background');
+
+      // Higher perturbance = stronger light-refraction, closer to real water from above
+      $water.ripples({
+        resolution:   512,
+        dropRadius:   220,
+        perturbance:  0.18,
+        crossOrigin:  'anonymous',
+        interactive:  false
+      });
+
+      // ----------------------------------------------------------------
+      // CURSOR — speed-responsive: glide gently = small ripples,
+      //          sweep fast = large breaking waves
+      // ----------------------------------------------------------------
+      var mx = -999, my = -999;
+      var isTouchOnly = window.matchMedia('(hover: none)').matches;
+      $(document).on('mousemove', function(e) {
+        if(isTouchOnly) return;
+        var dx    = e.clientX - mx;
+        var dy    = e.clientY - my;
+        var speed = Math.sqrt(dx * dx + dy * dy);
+        if (speed < 4) return;
+        var radius   = 90  + Math.min(speed * 3.5, 200);
+        var strength = 0.018 + Math.min(speed * 0.0018, 0.072);
+        $water.ripples('drop', e.clientX, e.clientY, radius, strength);
+        mx = e.clientX;
+        my = e.clientY;
+      });
+
+      // ----------------------------------------------------------------
+      // OCEAN SWELL GENERATOR
+      // Creates realistic wave-fronts: horizontal swells and diagonal
+      // cross-swells, each built from overlapping large drops so the
+      // refraction lines look like actual ocean waves seen from the sky.
+      // ----------------------------------------------------------------
+      function createSwell(type) {
+        var W        = $(window).width();
+        var H        = $(window).height();
+        var radius   = 200 + Math.random() * 220;
+        var strength = 0.045 + Math.random() * 0.055;
+
+        if (type === 'h') {
+          // --- Horizontal swell rolling across the full width ---
+          var baseY = H * 0.08 + Math.random() * H * 0.84;
+          var steps = Math.ceil(W / 48) + 2;
+          for (var i = 0; i <= steps; i++) {
+            (function(n) {
+              setTimeout(function() {
+                $water.ripples('drop',
+                  n * 48,
+                  baseY + Math.sin(n * 0.38) * 80,
+                  radius, strength
+                );
+              }, n * 14);
+            })(i);
+          }
+
+        } else if (type === 'd') {
+          // --- Diagonal cross-swell (adds depth & realism) ---
+          var fromLeft = Math.random() > 0.5;
+          var startX   = fromLeft ? -radius : W + radius;
+          var dirX     = fromLeft ? 1 : -1;
+          var startY   = H * (0.05 + Math.random() * 0.45);
+          var steps    = Math.ceil((W + radius * 2) / 44);
+          for (var i = 0; i <= steps; i++) {
+            (function(n) {
+              setTimeout(function() {
+                $water.ripples('drop',
+                  startX + n * 44 * dirX,
+                  startY + n * 28 + Math.sin(n * 0.42) * 60,
+                  radius * 0.82, strength * 0.82
+                );
+              }, n * 16);
+            })(i);
+          }
+
+        } else {
+          // --- Wide slow ground-swell (large-amplitude, gentle) ---
+          var baseY = H * 0.2 + Math.random() * H * 0.6;
+          var steps = Math.ceil(W / 75) + 2;
+          for (var i = 0; i <= steps; i++) {
+            (function(n) {
+              setTimeout(function() {
+                $water.ripples('drop',
+                  n * 75,
+                  baseY + Math.sin(n * 0.22) * 120,
+                  radius * 1.35, strength * 0.65
+                );
+              }, n * 22);
+            })(i);
+          }
+        }
+      }
+
+      // Schedule waves continuously — random mix of types
+      function scheduleWave() {
+        var roll = Math.random();
+        var type = roll < 0.50 ? 'h' : (roll < 0.80 ? 'd' : 'g');
+        createSwell(type);
+        setTimeout(scheduleWave, 2200 + Math.random() * 2400);
+      }
+
+      // Seed with opening waves so the ocean feels alive immediately
+      setTimeout(function() { createSwell('g'); }, 200);
+      setTimeout(function() { createSwell('h'); }, 800);
+      setTimeout(function() { createSwell('d'); }, 1800);
+      setTimeout(scheduleWave, 3800);
+
+    } catch(e) { console.log('Water effect skipped.'); }
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+  revealElements.forEach(el => revealOnScroll.observe(el));
+
+  const counters = document.querySelectorAll(".counter");
+  const counterObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let counter = entry.target;
+        let target = +counter.getAttribute('data-target');
+        let count = 0;
+        let speed = target / 60; 
+        let updateCount = () => {
+          count += speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you. A logistics specialist will review your inquiry and contact you shortly.');
+    this.reset();
+  });
+
+  // Hero particle canvas — floating gold embers
+  (function() {
+    var canvas = document.getElementById('hero-canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for(var i = 0; i < 60; i++) {
+      particles.push({
+        x:  Math.random() * (W || 1920),
+        y:  Math.random() * (H || 1080),
+        r:  Math.random() * 1.1 + 0.2,
+        sx: (Math.random() - 0.5) * 0.22,
+        sy: -(Math.random() * 0.3 + 0.04),
+        a:  Math.random() * 0.3 + 0.04,
+        da: (Math.random() - 0.5) * 0.0015
+      });
+    }
+
+    var heroVisible = true;
+    var sentinel = document.getElementById('about');
+    if(sentinel && window.IntersectionObserver) {
+      new IntersectionObserver(function(entries) {
+        heroVisible = !entries[0].isIntersecting;
+      }, { threshold: 0.1 }).observe(sentinel);
+    }
+
+    function tick() {
+      requestAnimationFrame(tick);
+      ctx.clearRect(0, 0, W, H);
+      if(!heroVisible) return;
+      for(var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.sx; p.y += p.sy;
+        p.a = Math.max(0.02, Math.min(0.38, p.a + p.da));
+        if(p.y < -4)    { p.y = H + 4; p.x = Math.random() * W; }
+        if(p.x < -4)    { p.x = W + 4; }
+        if(p.x > W + 4) { p.x = -4;    }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = 'rgba(212,175,55,' + p.a.toFixed(2) + ')';
+        ctx.fill();
+      }
+    }
+    tick();
+  })();
+
+  // Preloader
+  (function() {
+    var preloader = document.getElementById('preloader');
+    if(!preloader) return;
+    function hidePreloader() { preloader.classList.add('hidden'); }
+    if(document.readyState === 'complete') {
+      setTimeout(hidePreloader, 2500);
+    } else {
+      window.addEventListener('load', function() { setTimeout(hidePreloader, 2500); });
+    }
+  })();
+
+  // Mobile Navigation
+  (function() {
+    var btn = document.getElementById('hamburgerBtn');
+    var nav = document.getElementById('mobileNav');
+    var overlay = document.getElementById('mobileNavOverlay');
+    if(!btn) return;
+    function close() { btn.classList.remove('open'); nav.classList.remove('open'); overlay.classList.remove('open'); }
+    btn.addEventListener('click', function() {
+      var open = nav.classList.contains('open');
+      if(open) { close(); } else { btn.classList.add('open'); nav.classList.add('open'); overlay.classList.add('open'); }
+    });
+    overlay.addEventListener('click', close);
+    document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', close); });
+  })();
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+<!-- WHATSAPP FLOAT BUTTON — update the number in the href -->
+<a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contact on WhatsApp">
+  <div class="whatsapp-pulse"></div>
+  <div class="whatsapp-tooltip">WhatsApp Us</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>
