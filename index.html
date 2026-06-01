@@ -269,7 +269,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .whatsapp-btn svg { width: 26px; height: 26px; }
   .whatsapp-tooltip { display: none; }
   
-  /* Kill the heavy SVG filter on mobile to stop compositing glitches */
   .film-grain { display: none; }
 }
 
@@ -1023,8 +1022,8 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
 
       $water.ripples({
         resolution:   512,
-        dropRadius:   isMob ? 80 : 220,
-        perturbance:  isMob ? 0.008 : 0.04, 
+        dropRadius:   isMob ? 100 : 220,
+        perturbance:  isMob ? 0.03 : 0.04, 
         crossOrigin:  'anonymous',
         interactive:  false
       });
@@ -1044,17 +1043,17 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       var lastDrop = 0;
       window.addEventListener('touchmove', function(e) {
           var now = Date.now();
-          if (now - lastDrop < 50) return; 
+          if (now - lastDrop < 40) return; 
           var touch = e.touches[0];
           if(!touch) return;
-          $water.ripples('drop', touch.clientX, touch.clientY, 80, 0.015);
+          $water.ripples('drop', touch.clientX, touch.clientY, 90, 0.04);
           lastDrop = now;
       }, {passive: true});
 
       function createSwell() {
         var W = $(window).width(), H = $(window).height();
-        var radius = isMob ? 150 : 400; 
-        var strength = isMob ? 0.008 : 0.02; 
+        var radius = isMob ? 180 : 400; 
+        var strength = isMob ? 0.03 : 0.02; 
         var drops = isMob ? 2 : 4;
         for(var i=0; i<drops; i++) {
             setTimeout(function() { $water.ripples('drop', Math.random() * W, Math.random() * H, radius, strength); }, i * 600);
