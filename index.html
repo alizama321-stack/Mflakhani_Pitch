@@ -1013,7 +1013,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   }, 2500);
 
   // ==========================================================================
-  // HIGH-TIER GRAPHICS: NATIVE FLUID DYNAMICS
+  // HIGH-TIER GRAPHICS: NATIVE FLUID DYNAMICS (SCROLL-WAKE TRACKING)
   // ==========================================================================
   $(document).ready(function() {
     try {
@@ -1039,14 +1039,28 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
           mx = e.clientX; my = e.clientY;
       });
 
-      // Bulletproof Mobile Touch Engine
-      var lastDrop = 0;
+      // Bulletproof Mobile Touch Engine (Now with Scroll-Wake)
+      var lastDrop = 0, lastX = window.innerWidth/2, lastY = window.innerHeight/2;
+      
+      window.addEventListener('touchstart', function(e) { 
+          if(e.touches[0]) { lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; }
+      }, {passive: true});
+
       window.addEventListener('touchmove', function(e) {
+          if(!e.touches[0]) return;
+          lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
           var now = Date.now();
           if (now - lastDrop < 40) return; 
-          var touch = e.touches[0];
-          if(!touch) return;
-          $water.ripples('drop', touch.clientX, touch.clientY, 90, 0.04);
+          $water.ripples('drop', lastX, lastY, 90, 0.04);
+          lastDrop = now;
+      }, {passive: true});
+
+      // Intercept vertical scroll and drop ripples at the last known thumb position
+      window.addEventListener('scroll', function() {
+          if(!isMob) return;
+          var now = Date.now();
+          if (now - lastDrop < 50) return;
+          $water.ripples('drop', lastX, lastY, 90, 0.04);
           lastDrop = now;
       }, {passive: true});
 
