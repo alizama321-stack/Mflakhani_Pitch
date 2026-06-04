@@ -85,7 +85,15 @@ section { padding: 120px 8%; pointer-events: none; }
 .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
 
 /* ==========================================================================
-   FEATURE 1: THE GRADING TIMELINE (7 STEPS)
+   FEATURE 1: TRUST GRID
+   ========================================================================== */
+.trust-item { background: rgba(0, 15, 30, 0.4); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; text-align: center; transition: transform 0.3s ease, background 0.3s ease; pointer-events: auto; backdrop-filter: blur(10px); }
+.trust-item:hover { transform: translateY(-8px); background: rgba(212,175,55,0.05); border-color: rgba(212,175,55,0.3); }
+.trust-item h4 { color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; }
+.trust-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+
+/* ==========================================================================
+   FEATURE 2: OPERATIONS TIMELINE (5 STEPS)
    ========================================================================== */
 .timeline-container { position: relative; max-width: 800px; margin: 0 auto; padding: 40px 0; }
 .timeline-line-bg { position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.1); }
@@ -99,7 +107,7 @@ section { padding: 120px 8%; pointer-events: none; }
 .node-content h4 { color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; }
 
 /* ==========================================================================
-   FEATURE 2: KINETIC STACKING PORTFOLIO CARDS (6 CARDS)
+   FEATURE 3: KINETIC STACKING PORTFOLIO CARDS (6 CARDS)
    ========================================================================== */
 .portfolio-section { position: relative; padding-bottom: 200px; }
 .portfolio-deck { position: relative; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; pointer-events: auto; }
@@ -143,7 +151,7 @@ section { padding: 120px 8%; pointer-events: none; }
 .catalog-link:hover { color: #fff; } .catalog-link::after { content: '→'; font-size: 1.2rem; transition: transform 0.3s ease; } .catalog-link:hover::after { transform: translateX(10px); }
 
 /* ==========================================================================
-   FEATURE 3: BUILD YOUR CONTAINER CONFIGURATOR
+   FEATURE 4: BUILD YOUR CONTAINER CONFIGURATOR
    ========================================================================== */
 .config-wrapper { background: rgba(0, 10, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; pointer-events: auto; backdrop-filter: blur(15px); }
 .config-controls { display: flex; flex-direction: column; gap: 25px; }
@@ -164,7 +172,7 @@ input[type=range]:active::-webkit-slider-thumb { transform: scale(1.3); }
 .size-btn.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 600; }
 
 /* ==========================================================================
-   FEATURE 4: PERFECT 3D GLOBE
+   FEATURE 5: PERFECT 3D GLOBE
    ========================================================================== */
 .globe-section { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 120px 8%; }
 .globe-text-content { flex: 0 1 450px; text-align: left; }
@@ -181,29 +189,13 @@ input[type=range]:active::-webkit-slider-thumb { transform: scale(1.3); }
 .globe-label { position: absolute; top: 0; left: 0; background: rgba(0, 10, 20, 0.9); border: 1px solid var(--gold); color: var(--champagne); padding: 6px 12px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; pointer-events: none; transform: translate(-50%, -150%); white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 
 /* ==========================================================================
-   FEATURE 5: LIVE ENVIRONMENTAL TICKER
-   ========================================================================== */
-.sustainability-ticker { display: flex; justify-content: space-around; background: rgba(0, 5, 10, 0.8); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: 60px; }
-.ticker-item { text-align: center; }
-.ticker-num { font-family: 'Inter', monospace; font-size: 2.5rem; font-weight: 700; color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.4); margin-bottom: 10px; display: block; }
-.ticker-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
-
-/* ==========================================================================
    OTHER SECTIONS 
    ========================================================================== */
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; margin-bottom: 80px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
 .stat-item { padding: 30px 20px; position: relative; }
 .stat-item:not(:last-child)::after { content: ''; position: absolute; right: -20px; top: 20%; height: 60%; width: 1px; background: rgba(255,255,255,0.1); }
 .stat-number { font-size: 4rem; font-family: 'Playfair Display', serif; font-weight: 400; color: var(--champagne); margin-bottom: 15px; }
 .stat-text { font-size: 0.75rem; color: #829ab1; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; }
-
-.luxury-container { background: rgba(0, 15, 30, 0.65); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid rgba(255,255,255,0.2); padding: 50px; border-radius: 8px; backdrop-filter: blur(12px); pointer-events: auto; position: relative; animation: cardFloat 6s ease-in-out infinite alternate; will-change: transform, box-shadow;}
-.container-green { border-top-color: #10b981; animation-delay: 0.5s; }
-.container-blue  { border-top-color: var(--gold); animation-delay: 1.5s; }
-.container-id { font-family: 'Inter', monospace; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-.luxury-container h3 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--champagne); margin-bottom: 15px; font-weight: 600; }
-.luxury-container p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; font-weight: 300; }
-.container-specs { font-family: 'Inter', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; display: block; }
 
 .contact-wrapper { background: rgba(0, 5, 10, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-top: 1px solid rgba(255, 255, 255, 0.15); padding: 80px; backdrop-filter: blur(25px); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); pointer-events: auto; }
 .contact-text h3 { font-size: 2.5rem; font-family: 'Playfair Display', serif; margin-bottom: 25px; color: var(--champagne); }
@@ -236,9 +228,9 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .hero-btn-group { flex-direction: column; gap: 15px; }
   .btn-primary { width: 100%; }
   .trust-badges { flex-direction: column; gap: 12px; margin-top: 25px; }
-  .scroll-indicator { display: none; } /* Hide on mobile to save space for buttons */
+  .scroll-indicator { display: none; } 
 
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   .stat-item:not(:last-child)::after { display: none; }
   .stat-number { font-size: 3.2rem; }
   .stat-item { padding: 20px 10px; }
@@ -271,13 +263,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .globe-text-content .section-header p { margin: 0 auto; }
   .globe-features { display: none; } 
   #globe-wrapper { max-width: 360px; }
-  .grid { grid-template-columns: 1fr !important; }
-  .luxury-container { padding: 35px 25px; }
-  .sustainability-ticker { flex-direction: column; gap: 20px; padding: 25px 20px; }
-  .ticker-num { font-size: 2rem; }
-  .faq-question { font-size: 1rem; padding: 20px 0; }
-  .faq-icon { width: 26px; height: 26px; min-width: 26px; font-size: 1.2rem; }
-  .faq-answer-inner { font-size: 0.9rem; }
   .contact-wrapper { grid-template-columns: 1fr; padding: 35px 20px; gap: 35px; }
   .contact-text h3 { font-size: 2rem; }
   .form-control { font-size: 1rem; }
@@ -306,10 +291,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   .stats-grid { gap: 10px; }
   .preloader-logo { font-size: 2.4rem; }
   .preloader-tagline { letter-spacing: 3px; font-size: 0.65rem; }
-  .ticker-num { font-size: 1.8rem; }
-  .ticker-label { font-size: 0.65rem; }
   .card-info h3 { font-size: 1.75rem; }
-  .faq-question { font-size: 0.92rem; }
   #globe-wrapper { max-width: 300px; }
   .mobile-nav { width: 85vw; }
 }
@@ -369,19 +351,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
 .marquee-item .flag { font-size: 1.3rem; line-height: 1; }
 .marquee-diamond { color: var(--gold); opacity: 0.35; font-size: 0.55rem; }
 @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* ==========================================================================
-   NEW: FAQ ACCORDION
-   ========================================================================== */
-.faq-list { max-width: 900px; margin: 0 auto; pointer-events: auto; }
-.faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
-.faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 28px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; transition: color 0.3s ease; }
-.faq-question:hover { color: var(--champagne); }
-.faq-icon { width: 30px; height: 30px; min-width: 30px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--gold); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); line-height: 1; font-family: 'Inter', sans-serif; font-weight: 300; }
-.faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); background: rgba(212,175,55,0.1); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
-.faq-item.open .faq-answer { max-height: 400px; }
-.faq-answer-inner { padding-bottom: 30px; color: var(--text-muted); line-height: 1.85; font-weight: 300; font-size: 0.95rem; }
 
 /* ==========================================================================
    HERO ENHANCEMENT: FILM GRAIN TEXTURE
@@ -479,7 +448,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#operations">Process</a></li>
       <li><a href="#global-network">Export Markets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -493,7 +462,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
     <a href="#home" class="mobile-nav-link">Home</a>
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#products" class="mobile-nav-link">Products</a>
-    <a href="#process" class="mobile-nav-link">Process</a>
+    <a href="#operations" class="mobile-nav-link">Process</a>
     <a href="#global-network" class="mobile-nav-link">Export Markets</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <div class="mobile-nav-footer">M.F Lakhani & Sons &copy; 2026</div>
@@ -533,14 +502,50 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
 
   <section id="about">
     <div class="section-header reveal">
-      <h2>The Global Standard</h2>
-      <p>Premium B2B textile export solutions serving international markets via seamless ocean freight logistics and uncompromising quality control.</p>
+      <h2>Our Story</h2>
+      <p>With deep roots in the used clothing industry, M.F Lakhani & Sons has established a global footprint built on trust and precision. We operate a highly scalable export infrastructure, sourcing and processing premium textiles to meet the exacting demands of international wholesalers. Our extensive reach and operational excellence ensure that every container delivers uncompromised value to markets worldwide.</p>
     </div>
+  </section>
+
+  <section id="statistics" style="padding-top: 0;">
     <div class="stats-grid reveal">
-      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="35">0</span>+</div><div class="stat-text">Countries Served</div></div>
-      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="1200">0</span>+</div><div class="stat-text">Containers Exported</div></div>
-      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="15">0</span></div><div class="stat-text">Years Experience</div></div>
-      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="98">0</span>%</div><div class="stat-text">Client Retention</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="0">0</span></div><div class="stat-text">Countries Served</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="0">0</span></div><div class="stat-text">Product Categories</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="0">0</span></div><div class="stat-text">Years of Experience</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="counter" data-target="0">0</span></div><div class="stat-text">Containers Shipped</div></div>
+    </div>
+  </section>
+
+  <section id="trust" style="background: rgba(0, 5, 10, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="section-header reveal">
+      <h2>Why Buyers Trust M.F Lakhani</h2>
+      <p>Our reputation is built on reliability, precision, and global logistics expertise.</p>
+    </div>
+    <div class="grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="trust-item">
+        <h4>Consistent Grading Standards</h4>
+        <p>Rigorous, standardized sorting protocols ensure you receive exactly what you order, every time.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Experienced Sorting Teams</h4>
+        <p>Highly trained specialists who understand the nuanced requirements of diverse global markets.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Reliable Bulk Supply</h4>
+        <p>Steady, high-volume availability capable of sustaining consistent multi-container supply chains.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Export Experience</h4>
+        <p>Seamless management of customs, fumigation, and maritime logistics documentation.</p>
+      </div>
+      <div class="trust-item">
+        <h4>International Operations</h4>
+        <p>Proven track record of delivering securely to ports across multiple continents.</p>
+      </div>
+      <div class="trust-item">
+        <h4>Professional Communication</h4>
+        <p>Transparent, responsive B2B support from the initial inquiry to final port delivery.</p>
+      </div>
     </div>
   </section>
 
@@ -557,10 +562,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       <div class="marquee-item"><span class="flag">🇿🇦</span> South Africa</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇳🇬</span> Nigeria</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇹🇷</span> Turkey</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇵🇱</span> Poland</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇲🇦</span> Morocco</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇮🇳</span> India</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇦🇺</span> Australia</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇹🇭</span> Thailand</div><div class="marquee-diamond">◆</div>
       <!-- Duplicate for seamless loop -->
       <div class="marquee-item"><span class="flag">🇵🇰</span> Pakistan</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇦🇪</span> UAE</div><div class="marquee-diamond">◆</div>
@@ -573,16 +575,13 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       <div class="marquee-item"><span class="flag">🇿🇦</span> South Africa</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇳🇬</span> Nigeria</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇹🇷</span> Turkey</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇵🇱</span> Poland</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇲🇦</span> Morocco</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇮🇳</span> India</div><div class="marquee-diamond">◆</div>
-      <div class="marquee-item"><span class="flag">🇦🇺</span> Australia</div><div class="marquee-diamond">◆</div>
+      <div class="marquee-item"><span class="flag">🇹🇭</span> Thailand</div><div class="marquee-diamond">◆</div>
     </div>
   </div>
 
-  <section id="process" style="padding-top: 0;">
+  <section id="operations" style="padding-top: 120px;">
     <div class="section-header reveal">
-      <h2>Meticulous Sorting Process</h2>
+      <h2>Operations</h2>
       <p>A transparent look at how we transform raw collections into retail-ready global shipments.</p>
     </div>
     <div class="timeline-container interactive-module reveal">
@@ -592,50 +591,36 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       <div class="timeline-node" data-node="1">
         <div class="node-point"></div>
         <div class="node-content">
-          <h4>1. Import</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Sourcing raw credential materials directly from premium collection points in North America and Europe.</p>
+          <h4>1. Warehouse Operations</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Acquiring pristine credential materials directly from premium collection points.</p>
         </div>
       </div>
       <div class="timeline-node" data-node="2">
         <div class="node-point"></div>
         <div class="node-content">
-          <h4>2. Sorting</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Initial separation of categories into clothing, footwear, accessories, and heavy winter apparel by trained specialists.</p>
+          <h4>2. Sorting Department</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Initial separation of categories into clothing, footwear, accessories, and heavy apparel by trained specialists.</p>
         </div>
       </div>
       <div class="timeline-node" data-node="3">
         <div class="node-point"></div>
         <div class="node-content">
-          <h4>3. Grading</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Detailed quality inspection dividing textiles into over 150 specific grades (A, B, and C) to meet exact market demands.</p>
+          <h4>3. Quality Inspection</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Detailed quality checks dividing textiles into distinct grades to meet exact wholesale market demands.</p>
         </div>
       </div>
       <div class="timeline-node" data-node="4">
         <div class="node-point"></div>
         <div class="node-content">
-          <h4>4. Quality Check</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">A secondary, rigorous verification process to ensure zero compromised or heavily damaged garments pass into export bales.</p>
+          <h4>4. Packaging Process</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">High-density industrial baling presses items into compact waterproof blocks, maximizing freight volume.</p>
         </div>
       </div>
       <div class="timeline-node" data-node="5">
         <div class="node-point"></div>
         <div class="node-content">
-          <h4>5. Packaging</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">High-density industrial baling presses items into compact 100lbs (45kg) waterproof blocks, maximizing freight volume.</p>
-        </div>
-      </div>
-      <div class="timeline-node" data-node="6">
-        <div class="node-point"></div>
-        <div class="node-content">
-          <h4>6. Container Loading</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Strategic stuffing of 20FT and 40FT HC containers by logistics experts to utilize every inch of available payload space.</p>
-        </div>
-      </div>
-      <div class="timeline-node" data-node="7">
-        <div class="node-point"></div>
-        <div class="node-content">
-          <h4>7. Export</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Customs clearance, documentation, and maritime dispatch sending fully certified shipments to your destination port.</p>
+          <h4>5. Container Loading</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Strategic stuffing of 20FT and 40FT HC containers by logistics experts prior to customs and maritime dispatch.</p>
         </div>
       </div>
     </div>
@@ -750,7 +735,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
         </div>
         
         <div class="slider-group">
-          <label>Premium Vintage <span id="val-vintage">25%</span></label>
+          <label>Mixed Clothing <span id="val-vintage">25%</span></label>
           <input type="range" id="slide-vintage" min="0" max="100" value="25" class="config-slider">
         </div>
         <div class="slider-group">
@@ -758,21 +743,21 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
           <input type="range" id="slide-shoes" min="0" max="100" value="25" class="config-slider">
         </div>
         <div class="slider-group">
-          <label>Mixed Rags <span id="val-rags">25%</span></label>
+          <label>Denim & Jackets <span id="val-rags">25%</span></label>
           <input type="range" id="slide-rags" min="0" max="100" value="25" class="config-slider">
         </div>
         <div class="slider-group">
-          <label>Industrial Wipers <span id="val-wipers">25%</span></label>
+          <label>Accessories <span id="val-wipers">25%</span></label>
           <input type="range" id="slide-wipers" min="0" max="100" value="25" class="config-slider">
         </div>
       </div>
       
       <div class="config-visual">
         <div class="container-graphic">
-          <div class="bar-segment bar-vintage" id="bar-vintage" style="width: 25%;">VINTAGE</div>
+          <div class="bar-segment bar-vintage" id="bar-vintage" style="width: 25%;">MIXED</div>
           <div class="bar-segment bar-shoes" id="bar-shoes" style="width: 25%;">SHOES</div>
-          <div class="bar-segment bar-rags" id="bar-rags" style="width: 25%;">RAGS</div>
-          <div class="bar-segment bar-wipers" id="bar-wipers" style="width: 25%;">WIPERS</div>
+          <div class="bar-segment bar-rags" id="bar-rags" style="width: 25%;">DENIM</div>
+          <div class="bar-segment bar-wipers" id="bar-wipers" style="width: 25%;">ACC.</div>
         </div>
         <div class="config-stats">
           <span>Capacity: <span id="stat-capacity">100</span>%</span>
@@ -786,100 +771,13 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   <section id="global-network" class="globe-section">
     <div class="globe-text-content reveal">
       <div class="section-header">
-        <h2>Global Transit Network</h2>
-        <p>Drag to spin the globe and explore our intercontinental freight corridors. Scroll past to continue.</p>
-      </div>
-      
-      <div class="globe-features" style="margin-top: 40px;">
-        <div style="margin-bottom: 25px;">
-          <h4 style="color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px;">Karachi Hub (HQ)</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Our central sorting and distribution matrix, orchestrating thousands of TEUs annually.</p>
-        </div>
-        <div>
-          <h4 style="color: var(--champagne); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px;">Intercontinental Reach</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Seamless maritime lines connecting your business to Dubai, Mombasa, Rotterdam, Santos, and Houston.</p>
-        </div>
+        <h2>Export Markets</h2>
+        <p>Drag to spin the globe. Our international operations serve key wholesale markets across Africa, the USA, Thailand, the Middle East, Europe, and Asia.</p>
       </div>
     </div>
     
     <div id="globe-wrapper">
       <div id="globe-container" class="interactive-module reveal"></div>
-    </div>
-  </section>
-
-  <section id="sustainability">
-    <div class="section-header reveal">
-      <h2>Circular Economy</h2>
-      <p>We believe in textile recovery, landfill diversion, and giving garments a second life on a global scale.</p>
-    </div>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-      <div class="luxury-container container-green reveal">
-        <div class="container-id">ECO-01</div>
-        <h3>Zero-Waste Processing</h3>
-        <p>Items that do not pass our strict wearable grading standards are seamlessly transitioned into our wiping rag and recycling streams.</p>
-        <div class="container-specs">100% DIVERTED</div>
-      </div>
-      <div class="luxury-container container-blue reveal">
-        <div class="container-id">ECO-02</div>
-        <h3>Carbon Reduction</h3>
-        <p>By keeping millions of pounds of clothing in circulation, we heavily reduce the environmental impact associated with new textile manufacturing.</p>
-        <div class="container-specs">REDUCE / REUSE</div>
-      </div>
-    </div>
-    
-    <div class="sustainability-ticker reveal">
-      <div class="ticker-item">
-        <span class="ticker-num" id="tick-water">8,450,200</span>
-        <span class="ticker-label">Gallons of Water Saved</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-num" id="tick-landfill">2,140,500</span>
-        <span class="ticker-label">LBS Diverted from Landfill</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-num" id="tick-co2">950,300</span>
-        <span class="ticker-label">KG of CO2 Prevented</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="section-header reveal">
-      <h2>Common Questions</h2>
-      <p>Everything international wholesale buyers ask before placing their first container order.</p>
-    </div>
-    <div class="faq-list reveal">
-
-      <div class="faq-item">
-        <button class="faq-question">What is the Minimum Order Quantity (MOQ)?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Our minimum order is one full container load — either a 20FT (approximately 14,000 kg) or a 40FT (approximately 28,000 kg). We do not offer less-than-container (LCL) shipments for standard product lines. Mixed-product containers are available via our Shipment Configurator above.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">How are your textiles graded and sorted?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">All incoming donations are processed at our Karachi facility through a multi-stage grading system. Garments are classified into Grade A (retail-ready, minimal wear), Grade B (minor defects, suitable for resale markets), and Grade C (recycling/rag stream). Over 150 sub-categories are used to ensure precision sorting matched to each client's market requirements.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">What shipping terms (Incoterms) do you offer?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">We export primarily on FOB (Free On Board) Karachi terms, with CIF (Cost, Insurance & Freight) available to major destination ports including Dubai (Jebel Ali), Mombasa, Rotterdam, Houston, and Santos. All shipments include phytosanitary fumigation and full export documentation compliant with destination country import regulations.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">What is the typical lead time from order confirmation to shipment?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Standard lead time is 10–21 business days from deposit receipt to container loading, depending on product mix and availability. Custom-graded or specialty orders (e.g., specific brand vintage, single-category containers) may require up to 30 days. Clients are provided with a Bill of Lading within 5 days of vessel departure.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">What payment methods do you accept?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">We accept Telegraphic Transfer (T/T) bank wire as our primary payment method. A 30–50% deposit is required to confirm your order and begin processing, with the balance due prior to container release. Letter of Credit (L/C) arrangements are available for established clients with a verified trading history.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">Can I request samples before committing to a full container?<div class="faq-icon">+</div></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer sample bales (approx. 45–100 kg) for new clients at a per-kg rate inclusive of courier shipping. Sample shipments allow you to assess grading quality and product mix before placing a full container order. Contact our team to discuss sample availability for your product category of interest.</div></div>
-      </div>
-
     </div>
   </section>
 
@@ -919,7 +817,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   </section>
 
   <footer>
-    <p class="footer-text">© 2026 M.F Lakhani & Sons • Sustainable Textile Export</p>
+    <p class="footer-text">© 2026 M.F Lakhani & Sons • Global Used Textile Exporter</p>
   </footer>
 
 </div>
@@ -932,7 +830,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   let isSiteLoaded = false;
 
   const videoWrapper = document.getElementById('hero-video-wrapper');
-  const timelineSection = document.getElementById('process');
+  const timelineSection = document.getElementById('operations');
   const timelineFill = document.getElementById('timeline-fill');
   const timelineNodes = document.querySelectorAll('.timeline-node');
   const scrollProgressEl = document.getElementById('scroll-progress');
@@ -945,12 +843,11 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
   const globeWrapper = document.getElementById('globe-wrapper');
 
   const tourStops = [
-    { lat: 24.86, lng: 67.00, name: "Karachi Hub", isHub: true },
-    { lat: 25.20, lng: 55.27, name: "Dubai", isHub: false },
-    { lat: -4.04, lng: 39.66, name: "Mombasa", isHub: false },
-    { lat: 51.92, lng: 4.47, name: "Rotterdam", isHub: false },
-    { lat: -23.96, lng: -46.32, name: "Santos", isHub: false },
-    { lat: 29.76, lng: -95.36, name: "Houston", isHub: false }
+    { lat: 24.86, lng: 67.00, name: "Middle East / Asia (HQ)", isHub: true },
+    { lat: 1.29, lng: 36.82, name: "Africa", isHub: false },
+    { lat: 39.09, lng: -95.71, name: "USA", isHub: false },
+    { lat: 15.87, lng: 100.99, name: "Thailand", isHub: false },
+    { lat: 51.16, lng: 10.45, name: "Europe", isHub: false }
   ];
 
   const arcsData = tourStops.slice(1).map(stop => ({
@@ -976,7 +873,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
       .htmlElement(d => {
         const el = document.createElement('div');
         el.className = 'marker-container';
-        let safeName = d.name.replace(/\s/g, '');
+        let safeName = d.name.replace(/[^a-zA-Z]/g, '');
         let markerClass = d.isHub ? 'globe-marker hub' : 'globe-marker';
         el.innerHTML = `
             <div class="${markerClass}" id="marker-${safeName}"></div>
@@ -1043,7 +940,7 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
         tProgress = Math.min(1, Math.max(0, tProgress));
         timelineFill.style.height = `${tProgress * 100}%`;
         timelineNodes.forEach((node, index) => {
-          if(tProgress > (index * 0.12) + 0.05) node.classList.add('active'); // adjusted for 7 nodes
+          if(tProgress > (index * 0.20) + 0.1) node.classList.add('active'); // 5 nodes math
           else node.classList.remove('active');
         });
       }
@@ -1093,14 +990,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
     document.getElementById('stat-weight').innerText = weight.toLocaleString();
   }
 
-  let waterCount = 8450200, landfillCount = 2140500, co2Count = 950300;
-  setInterval(() => {
-    waterCount += Math.floor(Math.random() * 5); landfillCount += Math.floor(Math.random() * 3); co2Count += Math.floor(Math.random() * 2);
-    document.getElementById('tick-water').innerText = waterCount.toLocaleString();
-    document.getElementById('tick-landfill').innerText = landfillCount.toLocaleString();
-    document.getElementById('tick-co2').innerText = co2Count.toLocaleString();
-  }, 2500);
-
   // ==========================================================================
   // HIGH-TIER GRAPHICS: NATIVE FLUID DYNAMICS (SCROLL-WAKE TRACKING)
   // ==========================================================================
@@ -1144,7 +1033,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
           lastDrop = now;
       }, {passive: true});
 
-      // Intercept vertical scroll and drop ripples at the last known thumb position
       window.addEventListener('scroll', function() {
           if(!isMob) return;
           var now = Date.now();
@@ -1268,13 +1156,6 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,2
     document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', close); });
   })();
 
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = this.parentElement, isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if(!isOpen) item.classList.add('open');
-    });
-  });
 </script>
 
 <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contact on WhatsApp">
