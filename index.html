@@ -42,10 +42,10 @@ nav, .hero-content, .luxury-container, .contact-wrapper, .whatsapp, footer, .int
 /* ==========================================================================
    NAVIGATION
    ========================================================================== */
-nav { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 12, 20, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
+nav { position: fixed; top: 0; width: 100%; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 12, 20, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
 .logo { display: flex; align-items: center; text-decoration: none; gap: 15px; }
-.logo img { height: 50px; width: auto; border-radius: 50%; box-shadow: 0 0 15px rgba(255,255,255,0.1); display: block; background: #fff; padding: 2px; }
-.logo span { color: var(--gold); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.logo img { height: 75px; width: auto; border-radius: 50%; box-shadow: 0 0 15px rgba(255,255,255,0.1); display: block; background: #fff; padding: 2px; }
+.logo span { color: var(--gold); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
 nav ul { display: flex; gap: 40px; list-style: none; align-items: center; }
 nav a.nav-link { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
 nav a.nav-link:hover { color: var(--gold); }
@@ -155,6 +155,8 @@ section { padding: 120px 8%; pointer-events: none; }
 .card-visual-inner { position: absolute; inset: -10%; background-size: cover; background-position: center; animation: bgPan 25s ease-in-out infinite alternate; will-change: transform; filter: grayscale(30%) contrast(1.15) brightness(0.85); }
 @keyframes bgPan { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.1) translate(-2%, -2%); } }
 .card-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,17,24,1) 0%, transparent 40%); z-index: 2; pointer-events: none;}
+.catalog-link { display: inline-flex; align-items: center; gap: 15px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
+.catalog-link:hover { color: #fff; } .catalog-link::after { content: '→'; font-size: 1.2rem; transition: transform 0.3s ease; } .catalog-link:hover::after { transform: translateX(10px); }
 
 /* ==========================================================================
    FEATURE 4: BUILD YOUR CONTAINER CONFIGURATOR
@@ -242,10 +244,10 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   .section-header { margin-bottom: 45px; }
   .section-header h2 { font-size: 2.2rem; }
   .content-layer { padding-bottom: 40px; }
-  nav { padding: 18px 6%; background: rgba(5, 12, 20, 0.95); }
+  nav { padding: 12px 6%; background: rgba(5, 12, 20, 0.95); }
   .logo { gap: 10px; }
-  .logo img { height: 40px; }
-  .logo span { font-size: 1.1rem; }
+  .logo img { height: 55px; }
+  .logo span { font-size: 1.2rem; }
   nav ul { display: none; }
   
   .hero { padding: 0 6%; padding-top: 110px; min-height: 100dvh; justify-content: flex-start; }
@@ -323,8 +325,9 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
    ========================================================================== */
 @media (max-width: 480px) {
   section { padding: 55px 5%; }
-  nav { padding: 16px 5%; }
-  .logo span { font-size: 1rem; }
+  nav { padding: 10px 5%; }
+  .logo img { height: 45px; }
+  .logo span { font-size: 1.1rem; }
   .hero { padding: 0 5%; padding-top: 95px; }
   .hero h1 { font-size: 2.2rem; line-height: 1.15; }
   .hero p { font-size: 0.95rem; }
@@ -332,26 +335,11 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   .section-header h2 { font-size: 1.8rem; }
   .stat-number { font-size: 2.5rem; }
   .stats-grid { gap: 10px; }
-  .preloader-logo img { height: 90px; }
-  .preloader-tagline { letter-spacing: 3px; font-size: 0.65rem; }
   .card-info h3 { font-size: 1.6rem; }
   .faq-question { font-size: 0.95rem; }
   #globe-wrapper { max-width: 300px; }
   .mobile-nav { width: 85vw; }
 }
-
-/* ==========================================================================
-   NEW: PRELOADER
-   ========================================================================== */
-#preloader { position: fixed; inset: 0; z-index: 9999; background: radial-gradient(circle, rgba(10,17,24,0.3) 0%, rgba(5,12,20,0.98) 100%); pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 1.5s ease, visibility 1.5s ease; }
-#preloader.hidden { opacity: 0; visibility: hidden; }
-.preloader-logo { opacity: 0; animation: plFadeUp 1s ease 0.4s forwards; display: flex; justify-content: center; }
-.preloader-logo img { height: 130px; width: auto; border-radius: 50%; box-shadow: 0 0 30px rgba(255,255,255,0.05); background: #fff; padding: 4px;}
-.preloader-tagline { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 4px; color: var(--steel); opacity: 0; margin-top: 20px; animation: plFadeUp 1s ease 0.9s forwards; }
-.preloader-bar-track { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 40px; overflow: hidden; }
-.preloader-bar-fill { height: 100%; width: 0%; background: var(--gold); box-shadow: 0 0 10px var(--gold); animation: plBarFill 1.6s ease 0.7s forwards; }
-@keyframes plFadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes plBarFill { from { width: 0%; } to { width: 100%; } }
 
 /* ==========================================================================
    NEW: SCROLL PROGRESS BAR
@@ -456,13 +444,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
 </style>
 </head>
 <body>
-
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="preloader-logo"><img src="logo.png" alt="M.F Lakhani & Sons"></div>
-  <div class="preloader-tagline">Global Used Textile Exporter</div>
-  <div class="preloader-bar-track"><div class="preloader-bar-fill"></div></div>
-</div>
 
 <!-- SCROLL PROGRESS BAR -->
 <div id="scroll-progress"></div>
@@ -864,9 +845,8 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
 <script>
   let targetY = 0; 
   let smoothY = 0; 
-  let currentVideoOpacity = 0; 
-  let targetVideoOpacity = 0;
-  let isSiteLoaded = false;
+  let currentVideoOpacity = 1; 
+  let targetVideoOpacity = 1;
 
   const videoWrapper = document.getElementById('hero-video-wrapper');
   const timelineSection = document.getElementById('operations');
@@ -973,7 +953,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     if(scrollProgressEl) scrollProgressEl.style.width = ((targetY / (document.body.scrollHeight - window.innerHeight)) * 100) + '%';
     let windowHeight = window.innerHeight;
 
-    if(isSiteLoaded) targetVideoOpacity = Math.max(0, 1 - (targetY / (windowHeight * 0.7)));
+    targetVideoOpacity = Math.max(0, 1 - (targetY / (windowHeight * 0.7)));
 
     if(timelineSection && timelineFill) {
       let tTop = timelineSection.offsetTop, tHeight = timelineSection.offsetHeight;
@@ -1177,18 +1157,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   })();
 
   (function() {
-    var preloader = document.getElementById('preloader');
-    if(!preloader) return;
-    function hidePreloader() { 
-        preloader.classList.add('hidden'); 
-        isSiteLoaded = true; 
-        targetVideoOpacity = Math.max(0, 1 - (window.scrollY / (window.innerHeight * 0.7))); 
-    }
-    if(document.readyState === 'complete') { setTimeout(hidePreloader, 2500); } 
-    else { window.addEventListener('load', function() { setTimeout(hidePreloader, 2500); }); }
-  })();
-
-  (function() {
     var btn = document.getElementById('hamburgerBtn'), nav = document.getElementById('mobileNav'), overlay = document.getElementById('mobileNavOverlay');
     if(!btn) return;
     function close() { btn.classList.remove('open'); nav.classList.remove('open'); overlay.classList.remove('open'); }
@@ -1197,6 +1165,13 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     document.querySelectorAll('.mobile-nav-link').forEach(function(link) { link.addEventListener('click', close); });
   })();
 
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.parentElement, isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
 </script>
 
 <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contact on WhatsApp">
