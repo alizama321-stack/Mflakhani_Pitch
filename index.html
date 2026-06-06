@@ -6,17 +6,14 @@
 <title>M.F Lakhani & Sons | Global Used Textile Exporter</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Core Framework Libraries -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
 <script src="https://unpkg.com/globe.gl"></script>
 
-<!-- Smooth Scroll & Animation Directors -->
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<!-- Bulletproof Global 3D Engine Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
@@ -259,6 +256,14 @@ input[type=range]:active::-webkit-slider-thumb { transform: scale(1.1); }
 .size-btn.active { background: rgba(212,175,55,0.1); color: var(--gold); border-color: var(--gold); }
 
 /* ==========================================================================
+   FEATURE 7: LIVE ENVIRONMENTAL TICKER
+   ========================================================================== */
+.sustainability-ticker { display: flex; justify-content: space-around; background: rgba(10, 17, 24, 0.9); padding: 40px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
+.ticker-item { text-align: center; }
+.ticker-num { font-family: 'Inter', monospace; font-size: 2.5rem; font-weight: 700; color: #10b981; margin-bottom: 10px; display: block; letter-spacing: -1px; }
+.ticker-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--steel); }
+
+/* ==========================================================================
    OTHER SECTIONS & FORMS
    ========================================================================== */
 .contact-wrapper { background: rgba(10, 17, 24, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); border-top: 4px solid var(--gold); padding: 80px; border-radius: 4px; backdrop-filter: blur(25px); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); pointer-events: auto; }
@@ -422,10 +427,8 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   </div>
 </div>
 
-<!-- SCROLL PROGRESS BAR -->
 <div id="scroll-progress"></div>
 
-<!-- GLOBAL BACKGROUND WATER -->
 <div id="ocean-background"></div>
 <div class="water-tint"></div>
 
@@ -438,7 +441,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     </a>
     <ul>
       <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#global-network" class="nav-link">Export Markets</a></li>
       <li><a href="#about" class="nav-link">Company Overview</a></li>
       <li><a href="#products" class="nav-link">Products</a></li>
       <li><a href="#operations" class="nav-link">Working Process</a></li>
@@ -452,7 +454,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
     <a href="#home" class="mobile-nav-link">Home</a>
-    <a href="#global-network" class="mobile-nav-link">Export Markets</a>
     <a href="#about" class="mobile-nav-link">Company Overview</a>
     <a href="#products" class="mobile-nav-link">Products</a>
     <a href="#operations" class="mobile-nav-link">Working Process</a>
@@ -460,7 +461,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     <div class="mobile-nav-footer">M.F Lakhani & Sons &copy; 2026</div>
   </div>
 
-  <!-- THE PINNED HERO SCROLLYTELLING SECTION (NOW INCLUDES THE GLOBE PORTAL) -->
   <section class="hero" id="home">
     
     <canvas id="three-canvas"></canvas>
@@ -469,19 +469,16 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     <div class="video-overlay-bottom"></div>
     <div class="video-overlay-center"></div>
 
-    <!-- 1. THE GLOBE PORTAL -->
     <div id="globe-wrapper">
       <div id="globe-container"></div>
     </div>
 
-    <!-- 2. THE EXPORT MARKETS TEXT -->
     <div id="hero-globe-text">
         <span class="accent-subtitle" style="margin-bottom: 10px;">Global Network</span>
         <h2>Export Markets</h2>
         <p>Drag to spin the globe. From our absolute logistics matrix anchored at Karachi (EPZA), our operations systematically support international wholesale channels across Kenya, Mozambique, San Antonio, Thailand, the USA, the UAE, and Canada.</p>
     </div>
 
-    <!-- 3. THE INITIAL HERO TEXT -->
     <div id="hero-main-text" class="hero-content">
       <div class="hero-segment segment-1">
           <span class="accent-subtitle">Established 2026 • Wholesale Supply</span>
@@ -513,7 +510,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     
   </section>
   
-  <!-- Anchor so the top navigation correctly jumps past the pin -->
   <div id="global-network" style="height: 1px; visibility: hidden;"></div>
 
   <section id="about">
@@ -576,7 +572,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
       <div class="marquee-item"><span class="flag">🇺🇸</span> USA (San Antonio)</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇹🇭</span> Thailand</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇨🇦</span> Canada</div><div class="marquee-diamond">◆</div>
-      <!-- Duplicate for seamless loop -->
       <div class="marquee-item"><span class="flag">🇵🇰</span> Pakistan (EPZA)</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇦🇪</span> UAE</div><div class="marquee-diamond">◆</div>
       <div class="marquee-item"><span class="flag">🇰🇪</span> Kenya</div><div class="marquee-diamond">◆</div>
@@ -817,11 +812,8 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
 
 </div>
 
-<!-- UNIFIED MASTER SCRIPT (Controls Physics, Scroll, 3D Canvas, Globe & Routing) -->
 <script>
-  // ==========================================================================
-  // 1. INITIALIZE SMOOTH SCROLLING (Lenis)
-  // ==========================================================================
+  // 1. Initialize Lenis
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -834,83 +826,10 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   }
   requestAnimationFrame(raf);
 
-  // ==========================================================================
-  // 2. INITIALIZE GLOBE ENGINE
-  // ==========================================================================
-  const globeEl = document.getElementById('globe-container');
-  const globeWrapper = document.getElementById('globe-wrapper');
-  let myGlobe = null;
-
-  const tourStops = [
-    { lat: 24.86, lng: 67.00, name: "Karachi (EPZA) [HQ]", isHub: true },
-    { lat: -1.29, lng: 36.82, name: "Kenya", isHub: false },
-    { lat: -18.66, lng: 35.53, name: "Mozambique", isHub: false },
-    { lat: 29.42, lng: -98.49, name: "San Antonio", isHub: false },
-    { lat: 15.87, lng: 100.99, name: "Thailand", isHub: false },
-    { lat: 37.09, lng: -95.71, name: "USA", isHub: false },
-    { lat: 23.42, lng: 53.84, name: "UAE", isHub: false },
-    { lat: 56.13, lng: -106.35, name: "Canada", isHub: false }
-  ];
-
-  const arcsData = tourStops.slice(1).map(stop => ({
-    startLat: tourStops[0].lat,
-    startLng: tourStops[0].lng,
-    endLat: stop.lat,
-    endLng: stop.lng,
-    color: ['rgba(245, 230, 195, 0.2)', '#D4AF37'] 
-  }));
-
-  if(globeEl && globeWrapper) {
-    myGlobe = Globe()
-      (globeEl)
-      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-      .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-      .backgroundColor('rgba(0,0,0,0)') 
-      .showAtmosphere(true)
-      .atmosphereColor('#87CEFA') 
-      .atmosphereAltitude(0.15)
-      .htmlElementsData(tourStops)
-      .htmlElement(d => {
-        const el = document.createElement('div');
-        el.className = 'marker-container';
-        let safeName = d.name.replace(/[^a-zA-Z]/g, '');
-        let markerClass = d.isHub ? 'globe-marker hub' : 'globe-marker';
-        el.innerHTML = `
-            <div class="${markerClass}" id="marker-${safeName}"></div>
-            <div class="globe-label active" id="label-${safeName}">${d.name}</div>
-        `;
-        return el;
-      })
-      .arcsData(arcsData)
-      .arcColor('color')
-      .arcDashLength(0.5)
-      .arcDashGap(0.2)
-      .arcDashAnimateTime(2500)
-      .arcsTransitionDuration(0);
-
-    myGlobe.pointOfView({ lat: 20, lng: 40, altitude: 2.25 }, 0);
-    
-    // Disable normal controls because GSAP strictly operates the spin during transition
-    myGlobe.controls().autoRotate = false; 
-    myGlobe.controls().enableZoom = false; 
-
-    function resizeGlobe() {
-        if(myGlobe && globeWrapper) { 
-            let w = globeWrapper.offsetWidth; 
-            let h = globeWrapper.offsetHeight || w; 
-            myGlobe.width(w); 
-            myGlobe.height(h); 
-        }
-    }
-    setTimeout(resizeGlobe, 100); 
-    window.addEventListener('resize', resizeGlobe);
-  }
-
-  // ==========================================================================
-  // 3. INITIALIZE 3D CONTAINER YARD
-  // ==========================================================================
+  // 2. GSAP ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
+  // 3. Setup Three.js Scene WITH SHADOWS
   const canvas = document.getElementById('three-canvas');
   const scene = new THREE.Scene();
   
@@ -924,8 +843,10 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   renderer.shadowMap.enabled = true; 
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+  // Cinematic Lighting & Shadow Casting
   const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); 
   scene.add(ambientLight);
+  
   const dirLight = new THREE.DirectionalLight(0xfff5e6, 2.5); 
   dirLight.position.set(40, 80, 40);
   dirLight.castShadow = true;
@@ -940,18 +861,58 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
   dirLight.shadow.bias = -0.0005;
   scene.add(dirLight);
 
-  const floorGeo = new THREE.PlaneGeometry(1000, 1000);
-  const floorMat = new THREE.ShadowMaterial({ opacity: 0.6 });
-  const floor = new THREE.Mesh(floorGeo, floorMat);
-  floor.rotation.x = -Math.PI / 2;
-  floor.position.y = -2;
-  floor.receiveShadow = true;
-  scene.add(floor);
-
   const yardGroup = new THREE.Group();
   yardGroup.position.y = -2; 
   scene.add(yardGroup);
 
+  // ==========================================================================
+  // THE INDUSTRIAL TWIN VESSELS (Anchoring the containers)
+  // ==========================================================================
+  function createBarge(xOffset) {
+      const bargeGroup = new THREE.Group();
+
+      // The massive steel hull
+      const hullGeo = new THREE.BoxGeometry(90, 10, 1000);
+      const hullMat = new THREE.MeshStandardMaterial({
+          color: 0x111316, // Dark industrial steel
+          roughness: 0.8,
+          metalness: 0.2
+      });
+      const hull = new THREE.Mesh(hullGeo, hullMat);
+      hull.position.set(xOffset, -5, -450); // Pushed back into the z-axis
+      hull.receiveShadow = true;
+      bargeGroup.add(hull);
+
+      // The warning-painted edge rim (Gold/Yellow)
+      const rimGeo = new THREE.BoxGeometry(92, 1.5, 1000);
+      const rimMat = new THREE.MeshStandardMaterial({
+          color: 0xd4af37, // Matches your theme gold
+          roughness: 0.5,
+          metalness: 0.8
+      });
+      const rim = new THREE.Mesh(rimGeo, rimMat);
+      rim.position.set(xOffset, 0, -450);
+      rim.receiveShadow = true;
+      bargeGroup.add(rim);
+
+      // Deck surface lines (adds scale)
+      const gridHelper = new THREE.GridHelper(90, 20, 0x000000, 0x000000);
+      gridHelper.position.set(xOffset, 0.51, -450);
+      gridHelper.material.opacity = 0.4;
+      gridHelper.material.transparent = true;
+      bargeGroup.add(gridHelper);
+
+      return bargeGroup;
+  }
+
+  // Anchor the left and right arrays onto their own cargo vessels
+  yardGroup.add(createBarge(-70));
+  yardGroup.add(createBarge(70));
+
+
+  // ==========================================================================
+  // REALISTIC PROCEDURAL TEXTURE GENERATOR
+  // ==========================================================================
   function createRealisticContainer(hexColor) {
       const width = 512, height = 512;
       
@@ -1222,6 +1183,9 @@ footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,2
     document.getElementById('stat-weight').innerText = weight.toLocaleString();
   }
 
+  // ==========================================================================
+  // HIGH-TIER GRAPHICS: NATIVE FLUID DYNAMICS (SCROLL-WAKE TRACKING)
+  // ==========================================================================
   $(document).ready(function() {
     try {
       var $water = $('#ocean-background');
