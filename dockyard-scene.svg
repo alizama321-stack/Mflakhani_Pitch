@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Generated container dockyard asset</title>
+  <desc id="desc">A premium dark dockyard silhouette with gantry cranes, container stacks, a cargo vessel, and route lights for the M.F Lakhani and Sons hero section.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06101b"/>
+      <stop offset="0.48" stop-color="#0b1a27"/>
+      <stop offset="1" stop-color="#050c14"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#8a661f"/>
+      <stop offset="1" stop-color="#d4af37"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" fill="url(#sky)"/>
+  <path d="M0 505 C170 480 260 535 410 505 C585 470 700 545 890 505 C1020 475 1108 500 1200 478 L1200 720 L0 720 Z" fill="#07111a"/>
+  <path d="M0 548 C175 515 302 575 465 540 C625 507 785 575 955 536 C1060 512 1130 522 1200 506 L1200 720 L0 720 Z" fill="#091724"/>
+  <g opacity="0.36" stroke="#d4af37" stroke-width="2" fill="none">
+    <path d="M98 420 C270 330 444 305 610 275 C780 245 930 208 1110 145" stroke-dasharray="10 16"/>
+    <path d="M170 470 C350 410 536 392 730 348 C865 318 990 280 1135 230" stroke-dasharray="8 18"/>
+  </g>
+  <g fill="#102333" stroke="#244158" stroke-width="4">
+    <path d="M92 430 L144 150 L196 430 Z"/>
+    <path d="M94 176 H330 L356 205 H112 Z"/>
+    <path d="M210 205 L250 420"/>
+    <path d="M255 205 L195 420"/>
+    <path d="M500 440 L560 118 L620 440 Z"/>
+    <path d="M510 145 H830 L868 178 H536 Z"/>
+    <path d="M645 178 L700 438"/>
+    <path d="M722 178 L655 438"/>
+    <path d="M920 452 L965 210 L1014 452 Z"/>
+    <path d="M930 235 H1160 L1188 262 H950 Z"/>
+  </g>
+  <g fill="#d4af37" opacity="0.9" filter="url(#glow)">
+    <circle cx="144" cy="150" r="4"/>
+    <circle cx="560" cy="118" r="5"/>
+    <circle cx="965" cy="210" r="4"/>
+    <circle cx="1110" cy="145" r="4"/>
+    <circle cx="1135" cy="230" r="3"/>
+  </g>
+  <g transform="translate(120 420)">
+    <rect x="0" y="82" width="760" height="82" rx="8" fill="#09131e" stroke="#244158" stroke-width="4"/>
+    <rect x="56" y="34" width="570" height="60" fill="#102333" stroke="#244158" stroke-width="3"/>
+    <rect x="95" y="14" width="80" height="42" fill="#17384f"/>
+    <rect x="190" y="14" width="80" height="42" fill="#69402e"/>
+    <rect x="285" y="14" width="80" height="42" fill="#856321"/>
+    <rect x="380" y="14" width="80" height="42" fill="#1f5a48"/>
+    <rect x="475" y="14" width="80" height="42" fill="#17384f"/>
+    <rect x="590" y="52" width="126" height="42" fill="url(#gold)"/>
+    <path d="M0 164 H760 C710 203 92 206 0 164 Z" fill="#050c14"/>
+  </g>
+  <g opacity="0.92">
+    <rect x="110" y="570" width="116" height="46" fill="#17384f"/>
+    <rect x="234" y="570" width="116" height="46" fill="#856321"/>
+    <rect x="358" y="570" width="116" height="46" fill="#69402e"/>
+    <rect x="482" y="570" width="116" height="46" fill="#1f5a48"/>
+    <rect x="690" y="560" width="116" height="46" fill="#856321"/>
+    <rect x="814" y="560" width="116" height="46" fill="#17384f"/>
+    <rect x="938" y="560" width="116" height="46" fill="#69402e"/>
+  </g>
+</svg>
